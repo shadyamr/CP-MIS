@@ -1,0 +1,17 @@
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\bin\Debug\projectMIS.exe.config
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\bin\Debug\projectMIS.exe
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\bin\Debug\projectMIS.pdb
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\obj\Debug\projectMIS.csproj.AssemblyReference.cache
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\obj\Debug\projectMIS.Login.resources
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\obj\Debug\projectMIS.Properties.Resources.resources
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\obj\Debug\projectMIS.csproj.GenerateResource.cache
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\obj\Debug\projectMIS.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\obj\Debug\projectMIS.exe
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\obj\Debug\projectMIS.pdb
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\bin\Debug\BCrypt.Net.dll
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\bin\Debug\BCrypt.Net.xml
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\obj\Debug\projectMIS.csproj.CopyComplete
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\bin\Debug\DevExpress.Data.v22.2.dll
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\bin\Debug\DevExpress.Xpo.v22.2.dll
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\bin\Debug\DevExpress.Data.v22.2.xml
+C:\Users\lenovo\source\repos\projectMIS\projectMIS\bin\Debug\DevExpress.Xpo.v22.2.xml
