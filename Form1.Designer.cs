@@ -59,6 +59,7 @@ namespace projectMIS
             this.grd_Employees.Name = "grd_Employees";
             this.grd_Employees.Size = new System.Drawing.Size(440, 331);
             this.grd_Employees.TabIndex = 4;
+            this.grd_Employees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_Employees_CellContentClick);
             // 
             // Login
             // 

@@ -5,9 +5,13 @@ namespace projectMIS
 {
     public partial class Login : Form
     {
+        private DataGridView dataGridView1;
         public Login()
         {
             InitializeComponent();
+            Action u = new Action();
+            dataGridView1 = u.All_Audits_GridTable(dataGridView1);
+            grd_Employees.DataSource = u.All_Audits_GridTable(dataGridView1);
 
         }
 
@@ -35,6 +39,10 @@ namespace projectMIS
             // u.Feedback(20,5,5,1,"nice",5);
         }
 
+        private void grd_Employees_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 }

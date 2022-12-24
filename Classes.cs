@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using BCrypt.Net;
+using System.Data;
 
 namespace projectMIS
 {
@@ -272,9 +273,92 @@ namespace projectMIS
             }
         }
 
-
-        public void All_Audits()
+       /* public DataGridView All_Audits_GridTable(DataGridView gridTable)
         {
+
+            string firstName1 = "";
+            string LastName1 = "";
+
+            string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
+            string sql = "SELECT Action_Maker_ID, Action, Action_Made_On_ID, Notes FROM Audits";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                SqlCommand command = new SqlCommand("SELECT Action_Maker_ID, Action, Action_Made_On_ID, Notes FROM Audits", connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string actionMakerId = reader["Action_Maker_ID"].ToString();
+                        string actionMadeOnId = reader["Action_Made_On_ID"].ToString();
+
+                        string sql2 = "SELECT FirstName , LastName FROM Employees WHERE EmployeeID = @actionMakerId";
+
+                        try
+                        {
+                            using (SqlCommand command2 = new SqlCommand(sql2, connection))
+                            {
+                                command2.Parameters.AddWithValue("@actionMakerId", actionMakerId);
+
+                                reader.Close();
+                                using (SqlDataReader reader2 = command2.ExecuteReader())
+                                {
+                                    while (reader2.Read())
+                                    {
+                                        firstName1 = reader2["FirstName"].ToString();
+                                        LastName1 = reader2["LastName"].ToString();
+
+                                        // Exit the loop once you have found the row you are looking for
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        catch (SqlException ex)
+                        {
+                            // Display an error message to the user
+                            MessageBox.Show("An error occurred while executing the SQL query: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+                }
+
+                using (SqlCommand command1 = new SqlCommand(sql, connection))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command1))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    gridTable.DataSource = dataTable;
+                }
+            }
+
+            return gridTable;
+        } // still
+       */
+
+        public DataGridView All_Audits_GridTable(DataGridView gridTable)
+        {
+            string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
+            string sql = "SELECT * FROM Audits";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    gridTable.DataSource = dataTable;
+                }
+            }
+
+            return gridTable;
         }
 
         public void Select_Audit()
