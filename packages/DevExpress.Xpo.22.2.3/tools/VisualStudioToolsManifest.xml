@@ -1,0 +1,17 @@
+<FileList>
+  <File Reference="DevExpress.Xpo.v22.2.dll">
+    <ToolboxItems UIFramework="WinForms" VSCategory="DX.22.2: ORM Components">
+      <Item Type="DevExpress.Xpo.XPInstantFeedbackView" />
+      <Item Type="DevExpress.Xpo.XPInstantFeedbackSource" />
+      <Item Type="DevExpress.Xpo.XPCollection" />
+      <Item Type="DevExpress.Xpo.XPServerCollectionSource" />
+      <Item Type="DevExpress.Xpo.XPServerModeView" />
+      <Item Type="DevExpress.Xpo.Session" />
+      <Item Type="DevExpress.Xpo.UnitOfWork" />
+      <Item Type="DevExpress.Xpo.ExplicitUnitOfWork" />
+      <Item Type="DevExpress.Xpo.XPView" />
+      <Item Type="DevExpress.Xpo.XPDataView" />
+      <Item Type="DevExpress.Xpo.XPBindingSource" />
+    </ToolboxItems>
+  </File>
+</FileList>
