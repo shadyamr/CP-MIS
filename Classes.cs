@@ -23,7 +23,7 @@ namespace projectMIS
         }
     }
 
-    public class user
+    public class Action
     {
         functions f = new functions();
         setter s = new setter();
