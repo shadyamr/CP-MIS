@@ -6,6 +6,7 @@
 -----------------------------------------------------------------------------------------------------
 */
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -469,20 +470,26 @@ namespace projectMIS
             }
         }
 
-        public void SETEmployee(string firstName, string lastName, string Title, string password, string mobilePhone)
+
+
+        public void SETEmployee(string firstName, string lastName, string Title, string password, string mobilePhone , string filePath)
         {
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
 
             SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Employees (FirstName, LastName, Title, Password, MobilePhone) " +
-                "VALUES (@firstName, @lastName, @Title, @password, @mobilePhone)", con);
+
+            byte[] imageData = File.ReadAllBytes(filePath);
+
+            SqlCommand cmd = new SqlCommand("INSERT INTO Employees (FirstName, LastName, Title, Password, MobilePhone , photo) " +
+                "VALUES (@firstName, @lastName, @Title, @password, @mobilePhone ,@photo)", con);
 
             cmd.Parameters.AddWithValue("@firstName", firstName);
             cmd.Parameters.AddWithValue("@lastName", lastName);
             cmd.Parameters.AddWithValue("@Title", Title);
             cmd.Parameters.AddWithValue("@password", hashedPassword);
             cmd.Parameters.AddWithValue("@mobilePhone", mobilePhone);
+            cmd.Parameters.AddWithValue("@photo", filePath);
 
             int i = cmd.ExecuteNonQuery();
             con.Close();
@@ -785,6 +792,8 @@ namespace projectMIS
             }
         }
 
+        
+
 
     }
 
@@ -815,8 +824,52 @@ namespace projectMIS
         }
     }
 
-    public class getter { 
-    
+    public class getter 
+    {
+        public class Employee
+        {
+            public int EmployeeID { get; set; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string photo { get; set; }
+
+
+        }
+
+        private readonly string _connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
+
+        public Employee GetEmployee(int employeeId)
+        {
+            Employee employee = null;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                string sql = "SELECT * FROM Employees WHERE EmployeeID = @employeeId";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@employeeId", employeeId);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            employee = new Employee
+                            {
+                                EmployeeID = (int)reader["EmployeeID"],
+                                FirstName = (string)reader["FirstName"],
+                                LastName = (string)reader["LastName"],
+                                photo = (string)reader["Photo"]
+                            };
+                        }
+                    }
+                }
+            }
+
+            return employee;
+        }
     }
 
     }

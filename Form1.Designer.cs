@@ -30,7 +30,7 @@ namespace projectMIS
         private void InitializeComponent()
         {
             this.LoginButton = new System.Windows.Forms.Button();
-            this.ID_Number = new System.Windows.Forms.TextBox();
+            this.FirstName_TextBox = new System.Windows.Forms.TextBox();
             this.grd_Employees = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -39,7 +39,11 @@ namespace projectMIS
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Employees)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // LoginButton
@@ -52,12 +56,12 @@ namespace projectMIS
             this.LoginButton.UseVisualStyleBackColor = true;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // ID_Number
+            // FirstName_TextBox
             // 
-            this.ID_Number.Location = new System.Drawing.Point(115, 24);
-            this.ID_Number.Name = "ID_Number";
-            this.ID_Number.Size = new System.Drawing.Size(238, 20);
-            this.ID_Number.TabIndex = 3;
+            this.FirstName_TextBox.Location = new System.Drawing.Point(115, 24);
+            this.FirstName_TextBox.Name = "FirstName_TextBox";
+            this.FirstName_TextBox.Size = new System.Drawing.Size(238, 20);
+            this.FirstName_TextBox.TabIndex = 3;
             // 
             // grd_Employees
             // 
@@ -125,11 +129,42 @@ namespace projectMIS
             this.label4.TabIndex = 6;
             this.label4.Text = "ID";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(366, 43);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(92, 93);
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(318, 389);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 32);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "browse img";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metroButton1.Location = new System.Drawing.Point(51, 399);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(90, 22);
+            this.metroButton1.TabIndex = 9;
+            this.metroButton1.Text = "metroButton1";
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(476, 450);
+            this.Controls.Add(this.metroButton1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -138,11 +173,13 @@ namespace projectMIS
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.grd_Employees);
-            this.Controls.Add(this.ID_Number);
+            this.Controls.Add(this.FirstName_TextBox);
             this.Controls.Add(this.LoginButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Login";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.grd_Employees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +187,7 @@ namespace projectMIS
 
         #endregion
         private System.Windows.Forms.Button LoginButton;
-        private System.Windows.Forms.TextBox ID_Number;
+        private System.Windows.Forms.TextBox FirstName_TextBox;
         private System.Windows.Forms.DataGridView grd_Employees;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
@@ -159,6 +196,9 @@ namespace projectMIS
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }
 

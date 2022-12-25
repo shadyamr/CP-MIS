@@ -13,19 +13,30 @@ namespace projectMIS
 {
     public partial class Login : Form
     {
+        public string imgpath = "";
         public Login()
         {
             InitializeComponent();
             functions f = new functions();
             Action u = new Action();
+            getter g = new getter();
             DataGrid Data = new DataGrid();
             grd_Employees = Data.Employees_DataGrid(grd_Employees);
+
+
+            getter getter = new getter();
+            getter.Employee employee = getter.GetEmployee(20);
+
+            FirstName_TextBox.Text = employee.FirstName;
+            pictureBox1.ImageLocation = employee.photo;
+
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
             Action a = new Action();
             Update u = new Update();
+            setter s = new setter();
             /*
             if (u.Login("01009593303", "Sakr123"))
             {
@@ -40,9 +51,9 @@ namespace projectMIS
                             mainForm.Show();
                             MessageBox.Show("Good");
             */
-            // u.InsertEmployee("Mohamed", "Khaled", "Employee", "123456", "01009593303");
+             s.SETEmployee("Mohamed", "Khaled", "Employee", "123456", "01009593303" , imgpath);
             a.demote("20", "19");
-            u.updateEmployees(19,"sakr","Khaled","Title","123456","Mohamed");
+            //u.updateEmployees(19,"sakr","Khaled","Title","123456","Mohamed");
             // DateTime currentDate = DateTime.Now;
             //u.insertOrders(1,20, currentDate, currentDate, currentDate, 122.7,"Maro","betna","cairo","North",11814,"Cairo");
             // u.Feedback(20,5,5,1,"nice",5);
@@ -61,6 +72,22 @@ namespace projectMIS
             f.ExtractNumbers(cellValueString);
 
             MessageBox.Show(f.ExtractNumbers(cellValueString));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.bmp; *.png)|*.jpg;*.jpeg;*.bmp;*.png|All files (*.*)|*.*";
+
+            // Show the OpenFileDialog and check if the user selected a file
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Get the selected file path and display it in the text box
+                //.Text = openFileDialog.FileName;
+
+                MessageBox.Show("true img");
+                imgpath = openFileDialog.FileName;
+            }
         }
     }
 
