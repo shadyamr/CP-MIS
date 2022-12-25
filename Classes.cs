@@ -273,12 +273,8 @@ namespace projectMIS
             }
         }
 
-       /* public DataGridView All_Audits_GridTable(DataGridView gridTable)
+        public DataGridView FillDataGridView(DataGridView gridTable)
         {
-
-            string firstName1 = "";
-            string LastName1 = "";
-
             string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
             string sql = "SELECT Action_Maker_ID, Action, Action_Made_On_ID, Notes FROM Audits";
 
@@ -286,85 +282,42 @@ namespace projectMIS
             {
                 connection.Open();
 
-                SqlCommand command = new SqlCommand("SELECT Action_Maker_ID, Action, Action_Made_On_ID, Notes FROM Audits", connection);
+                using (SqlCommand command = new SqlCommand(sql, connection))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
-                    if (reader.Read())
+                    // Define the columns of the DataGridView
+                    DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
+                    column1.HeaderText = "Action Maker ID";
+                    column1.Name = "ActionMakerID";
+
+                    DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
+                    column2.HeaderText = "Action";
+                    column2.Name = "Action";
+
+                    DataGridViewTextBoxColumn column3 = new DataGridViewTextBoxColumn();
+                    column3.HeaderText = "Action Made On ID";
+                    column3.Name = "ActionMadeOnID";
+
+                    DataGridViewTextBoxColumn column4 = new DataGridViewTextBoxColumn();
+                    column4.HeaderText = "Notes";
+                    column4.Name = "Notes";
+
+                    // Add the columns to the DataGridView
+                    gridTable.Columns.Add(column1);
+                    gridTable.Columns.Add(column2);
+                    gridTable.Columns.Add(column3);
+                    gridTable.Columns.Add(column4);
+
+                    // Add rows to the DataGridView
+                    while (reader.Read())
                     {
-                        string actionMakerId = reader["Action_Maker_ID"].ToString();
-                        string actionMadeOnId = reader["Action_Made_On_ID"].ToString();
-
-                        string sql2 = "SELECT FirstName , LastName FROM Employees WHERE EmployeeID = @actionMakerId";
-
-                        try
-                        {
-                            using (SqlCommand command2 = new SqlCommand(sql2, connection))
-                            {
-                                command2.Parameters.AddWithValue("@actionMakerId", actionMakerId);
-
-                                reader.Close();
-                                using (SqlDataReader reader2 = command2.ExecuteReader())
-                                {
-                                    while (reader2.Read())
-                                    {
-                                        firstName1 = reader2["FirstName"].ToString();
-                                        LastName1 = reader2["LastName"].ToString();
-
-                                        // Exit the loop once you have found the row you are looking for
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                        catch (SqlException ex)
-                        {
-                            // Display an error message to the user
-                            MessageBox.Show("An error occurred while executing the SQL query: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        gridTable.Rows.Add(reader["Action_Maker_ID"], reader["Action"], reader["Action_Made_On_ID"], reader["Notes"]);
                     }
-
-                }
-
-                using (SqlCommand command1 = new SqlCommand(sql, connection))
-                using (SqlDataAdapter adapter = new SqlDataAdapter(command1))
-                {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-
-                    gridTable.DataSource = dataTable;
-                }
-            }
-
-            return gridTable;
-        } // still
-       */
-
-        public DataGridView All_Audits_GridTable(DataGridView gridTable)
-        {
-            string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
-            string sql = "SELECT * FROM Audits";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand(sql, connection))
-                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                {
-                    DataTable dataTable = new DataTable();
-                    adapter.Fill(dataTable);
-
-                    gridTable.DataSource = dataTable;
                 }
             }
 
             return gridTable;
         }
-
-        public void Select_Audit()
-        {
-        }
-
     }
     public class setter
     {

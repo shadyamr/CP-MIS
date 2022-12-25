@@ -1,18 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace projectMIS
 {
     public partial class Login : Form
     {
-        private DataGridView dataGridView1;
         public Login()
         {
             InitializeComponent();
             Action u = new Action();
-            dataGridView1 = u.All_Audits_GridTable(dataGridView1);
-            grd_Employees.DataSource = u.All_Audits_GridTable(dataGridView1);
-
+            grd_Employees = u.FillDataGridView(grd_Employees);
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
