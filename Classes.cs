@@ -30,7 +30,33 @@ namespace projectMIS
             return s.Substring(i);
         }
 
-        // titles function
+        public string Title(string status) {
+            int title = int.Parse(status);
+
+            if (title == 0)
+            {
+                return "Ex Employee";
+            }
+            else if (title == 1)
+            {
+                return "Employee Level 1";
+            }
+            else if (title == 2)
+            {
+                return "Employee Level 2";
+            }
+            else if (title == 3)
+            {
+                return "Employee Level 3";
+            }
+            else if (title == 4)
+            {
+                return "Employee Level 4";
+            }
+            else {
+                return "undefined";
+            }
+        }
     }
 
     public class Action
@@ -287,6 +313,7 @@ namespace projectMIS
 
     public class DataGrid
     {
+        functions f = new functions();
         public DataGridView Audits_Employee_ON_Employee_DataGrid(DataGridView gridTable)
         {
             string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
@@ -376,13 +403,14 @@ namespace projectMIS
                     while (reader.Read())
                     {
                         string LastName = reader["LastName"].ToString();
-                        gridTable.Rows.Add(reader["EmployeeID"], reader["FirstName"] + " " + LastName, reader["MobilePhone"], reader["EmployeeStatus"]);
+                        string Title = f.Title(reader["EmployeeStatus"].ToString());
+                        gridTable.Rows.Add(reader["EmployeeID"], reader["FirstName"] + " " + LastName, reader["MobilePhone"], Title);
                     }
                 }
             }
 
             return gridTable;
-        } // not done yet
+        }
     }
 
     public class setter

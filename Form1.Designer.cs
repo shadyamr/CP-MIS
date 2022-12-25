@@ -62,9 +62,9 @@ namespace projectMIS
             // grd_Employees
             // 
             this.grd_Employees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grd_Employees.Location = new System.Drawing.Point(18, 248);
+            this.grd_Employees.Location = new System.Drawing.Point(18, 198);
             this.grd_Employees.Name = "grd_Employees";
-            this.grd_Employees.Size = new System.Drawing.Size(440, 133);
+            this.grd_Employees.Size = new System.Drawing.Size(440, 183);
             this.grd_Employees.TabIndex = 4;
             this.grd_Employees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_Employees_CellContentClick);
             // 
@@ -103,9 +103,9 @@ namespace projectMIS
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(25, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Lat Name";
+            this.label2.Text = "Last Name";
             // 
             // label3
             // 
