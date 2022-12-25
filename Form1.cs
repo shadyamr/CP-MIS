@@ -17,12 +17,14 @@ namespace projectMIS
         {
             InitializeComponent();
             Action u = new Action();
-            grd_Employees = u.FillDataGridView(grd_Employees);
+            DataGrid Data = new DataGrid();
+            grd_Employees = Data.Employees_DataGrid(grd_Employees);
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            Action u = new Action();
+            Action a = new Action();
+            Update u = new Update();
             /*
             if (u.Login("01009593303", "Sakr123"))
             {
@@ -38,7 +40,8 @@ namespace projectMIS
                             MessageBox.Show("Good");
             */
             // u.InsertEmployee("Mohamed", "Khaled", "Employee", "123456", "01009593303");
-            u.demote("20", "1");
+            a.demote("20", "19");
+            u.updateEmployees(19,"sakr","Khaled","Title","123456","Mohamed");
             // DateTime currentDate = DateTime.Now;
             //u.insertOrders(1,20, currentDate, currentDate, currentDate, 122.7,"Maro","betna","cairo","North",11814,"Cairo");
             // u.Feedback(20,5,5,1,"nice",5);
@@ -47,6 +50,16 @@ namespace projectMIS
         private void grd_Employees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            // Get the currently selected cell
+            DataGridViewCell cell = grd_Employees.CurrentCell;
+
+            // Get the value of the cell
+            object cellValue = cell.Value;
+
+            // Use the cell value in your code
+            // For example, you can convert it to a string and display it in a message box
+            string cellValueString = cellValue.ToString();
+            MessageBox.Show(cellValueString);
         }
     }
 
