@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using BCrypt.Net;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace projectMIS
 {
@@ -56,6 +57,14 @@ namespace projectMIS
             else {
                 return "undefined";
             }
+        }
+
+        public string ExtractNumbers(string input)
+        {
+            var regex = new Regex(@"\d+");
+            var match = regex.Match(input);
+
+            return match.Value;
         }
     }
 
@@ -804,6 +813,10 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
+    }
+
+    public class getter { 
+    
     }
 
     }

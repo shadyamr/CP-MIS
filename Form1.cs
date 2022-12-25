@@ -16,6 +16,7 @@ namespace projectMIS
         public Login()
         {
             InitializeComponent();
+            functions f = new functions();
             Action u = new Action();
             DataGrid Data = new DataGrid();
             grd_Employees = Data.Employees_DataGrid(grd_Employees);
@@ -49,17 +50,17 @@ namespace projectMIS
 
         private void grd_Employees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            functions f = new functions();
 
-            // Get the currently selected cell
             DataGridViewCell cell = grd_Employees.CurrentCell;
 
-            // Get the value of the cell
             object cellValue = cell.Value;
 
-            // Use the cell value in your code
-            // For example, you can convert it to a string and display it in a message box
             string cellValueString = cellValue.ToString();
-            MessageBox.Show(cellValueString);
+
+            f.ExtractNumbers(cellValueString);
+
+            MessageBox.Show(f.ExtractNumbers(cellValueString));
         }
     }
 
