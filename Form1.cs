@@ -21,12 +21,13 @@ namespace projectMIS
             InitializeComponent();
             functions f = new functions();
             Action u = new Action();
-            Employee Employee = new Employee();
+            getter g = new getter();
+            getter getter = new getter();
             DataGrid Data = new DataGrid();
             grd_Employees = Data.Audits_Employee_ON_Employee_DataGrid(grd_Employees);
 
 
-            Employee employee = Employee.GetEmployee(20);
+            getter.Employee employee = getter.GetEmployee(20);
 
             FirstName_TextBox.Text = employee.FirstName;
             LastName_Text.Text = employee.LastName;
@@ -55,7 +56,7 @@ namespace projectMIS
                             mainForm.Show();
                             MessageBox.Show("Good");
             */
-            s.SETEmployee("Mohamed", "Khaled", "Employee", "123456", "01009593303" , imgpath);
+             s.SETEmployee("Mohamed", "Khaled", "Employee", "123456", "01009593303" , imgpath);
             a.demote("20", "19");
             //u.updateEmployees(19,"sakr","Khaled","Title","123456","Mohamed");
             // DateTime currentDate = DateTime.Now;
@@ -115,11 +116,6 @@ private void button2_Click(object sender, EventArgs e)
             foreach (var obj in projectDataSet.Salaries)
                 series.Add(new PieSeries() { Title = obj.EmployeeID.ToString(), Values = new ChartValues<int> { int.Parse(obj.salary.ToString())}, DataLabels = true, LabelPoint = label });
             pieChart1.Series = series;
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 
