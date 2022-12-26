@@ -110,7 +110,6 @@ private void button2_Click(object sender, EventArgs e)
         }
         Func<ChartPoint, string> label = chartpoint => string.Format("{0} {1:P}", chartpoint.Y, (double)chartpoint.Participation);
 
-
         private void button2_Click_1(object sender, EventArgs e)
         {
             SeriesCollection series = new SeriesCollection();
