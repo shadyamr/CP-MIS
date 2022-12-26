@@ -47,17 +47,6 @@ namespace projectMIS
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            functions f = new functions();
-
-            DataGridViewCell cell = dataGridView1.CurrentCell;
-
-            object cellValue = cell.Value;
-
-            string cellValueString = cellValue.ToString();
-
-            f.ExtractNumbers(cellValueString);
-
-            MessageBox.Show(f.ExtractNumbers(cellValueString));
         }
     }
 }
