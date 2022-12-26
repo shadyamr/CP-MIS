@@ -124,6 +124,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="projectDataSet.xsc">
@@ -152,6 +153,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\Untitled design %282%29.png" />
+    <None Include="Resources\Untitled design %281%29.png" />
+    <None Include="Resources\Untitled design.png" />
+    <None Include="Resources\download2.png" />
+    <None Include="Resources\dsada.png" />
+    <None Include="Resources\download1.png" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\69-693712_security-shield-png-clipart-security-shield-png-green1.png" />
+    <None Include="Resources\69-693712_security-shield-png-clipart-security-shield-png-green.png" />
+    <None Include="Resources\green-shield-security-tick-icon-simple-vector-filled-flat-green-shield-security-tick-icon-solid-pictogram-isolated-white-133480059.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
