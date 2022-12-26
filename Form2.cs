@@ -7,14 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Windows.Forms.DataVisualization.Charting;
+
+
 
 namespace projectMIS
 {
-    public partial class AdminForm1 : Form
+    public partial class AdminCP : Form
     {
-        public AdminForm1()
+        public AdminCP()
         {
             InitializeComponent();
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

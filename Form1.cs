@@ -11,23 +11,26 @@ using System.Data.SqlClient;
 
 namespace projectMIS
 {
-    public partial class Login : Form
+    public partial class Test : Form
     {
         public string imgpath = "";
-        public Login()
+        public Test()
         {
             InitializeComponent();
             functions f = new functions();
             Action u = new Action();
             getter g = new getter();
+            getter getter = new getter();
             DataGrid Data = new DataGrid();
             grd_Employees = Data.Employees_DataGrid(grd_Employees);
 
 
-            getter getter = new getter();
             getter.Employee employee = getter.GetEmployee(20);
 
             FirstName_TextBox.Text = employee.FirstName;
+            LastName_Text.Text = employee.LastName;
+            ID_Text.Text = employee.EmployeeID.ToString();
+            Date_ext.Text = employee.HireDate.ToString();
             pictureBox1.ImageLocation = employee.photo;
 
         }
@@ -88,6 +91,11 @@ namespace projectMIS
                 MessageBox.Show("true img");
                 imgpath = openFileDialog.FileName;
             }
+        }
+
+        private void Test_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

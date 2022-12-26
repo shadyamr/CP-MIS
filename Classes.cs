@@ -380,7 +380,7 @@ namespace projectMIS
         public DataGridView Employees_DataGrid(DataGridView gridTable)
         {
             string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
-            string sql = "SELECT EmployeeID, FirstName, LastName, MobilePhone, EmployeeStatus FROM Employees";
+            string sql = "SELECT EmployeeID, FirstName, LastName, MobilePhone, EmployeeStatus FROM Employees Where EmployeeStatus >= 1";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -469,8 +469,6 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-
-
 
         public void SETEmployee(string firstName, string lastName, string Title, string password, string mobilePhone , string filePath)
         {
@@ -680,13 +678,13 @@ namespace projectMIS
             }
         }
 
-        public void SETrevisit(int OrderID, int CustomerID, int EmployeeID, double revisit_time, string revisit_reason, DateTime revisit_date)
+        public void SETrevisit(int OrderID, int CustomerID, int EmployeeID, double revisit_time, string revisit_reason, DateTime revisit_date) // updated
         {
-
+            int status = 0;
             SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO revisit (OrderID, CustomerID, quantity_ordered, revisit_time, revisit_reason, revisit_date) " +
-                "VALUES (@OrderID, @ProductID, @UnitPriceOrder, @revisit_time, @revisit_reason, @revisit_date)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO revisit (OrderID, CustomerID, quantity_ordered, revisit_time, revisit_reason, revisit_date , status) " +
+                "VALUES (@OrderID, @ProductID, @UnitPriceOrder, @revisit_time, @revisit_reason, @revisit_date , @status)", con);
 
             cmd.Parameters.AddWithValue("@OrderID", OrderID);
             cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
@@ -694,6 +692,7 @@ namespace projectMIS
             cmd.Parameters.AddWithValue("@revisit_time", revisit_time);
             cmd.Parameters.AddWithValue("@revisit_reason", revisit_reason);
             cmd.Parameters.AddWithValue("@revisit_date", revisit_date);
+            cmd.Parameters.AddWithValue("@status", status);
 
             int i = cmd.ExecuteNonQuery();
             con.Close();
@@ -831,6 +830,9 @@ namespace projectMIS
             public int EmployeeID { get; set; }
             public string FirstName { get; set; }
             public string LastName { get; set; }
+            public string MobilePhone { get; set; }
+            public DateTime HireDate { get; set; }
+            public DateTime FireDate { get; set; }
             public string photo { get; set; }
 
 
@@ -861,6 +863,44 @@ namespace projectMIS
                                 EmployeeID = (int)reader["EmployeeID"],
                                 FirstName = (string)reader["FirstName"],
                                 LastName = (string)reader["LastName"],
+                                MobilePhone = (string)reader["MobilePhone"],
+                                HireDate = (DateTime)reader["HireDate"],
+                                photo = (string)reader["Photo"]
+                            };
+                        }
+                    }
+                }
+            }
+
+            return employee;
+        }
+
+        public Employee GetFiredEmployee(int employeeId)
+        {
+            Employee employee = null;
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                string sql = "SELECT * FROM Employees WHERE EmployeeID = @employeeId";
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@employeeId", employeeId);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            employee = new Employee
+                            {
+                                EmployeeID = (int)reader["EmployeeID"],
+                                FirstName = (string)reader["FirstName"],
+                                LastName = (string)reader["LastName"],
+                                MobilePhone = (string)reader["MobilePhone"],
+                                HireDate = (DateTime)reader["HireDate"],
+                                FireDate = (DateTime)reader["FireDate"],
                                 photo = (string)reader["Photo"]
                             };
                         }

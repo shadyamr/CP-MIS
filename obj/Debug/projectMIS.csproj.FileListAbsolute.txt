@@ -26,7 +26,6 @@ D:\Clones\CP-MIS\bin\Debug\DevExpress.Xpo.v22.2.xml
 D:\Clones\CP-MIS\bin\Debug\DevExtreme.AspNet.Data.xml
 D:\Clones\CP-MIS\bin\Debug\Newtonsoft.Json.xml
 D:\Clones\CP-MIS\obj\Debug\projectMIS.csproj.AssemblyReference.cache
-D:\Clones\CP-MIS\obj\Debug\projectMIS.Login.resources
 D:\Clones\CP-MIS\obj\Debug\projectMIS.Properties.Resources.resources
 D:\Clones\CP-MIS\obj\Debug\projectMIS.csproj.GenerateResource.cache
 D:\Clones\CP-MIS\obj\Debug\projectMIS.csproj.CoreCompileInputs.cache
@@ -35,4 +34,5 @@ D:\Clones\CP-MIS\obj\Debug\projectMIS.exe
 D:\Clones\CP-MIS\obj\Debug\projectMIS.pdb
 D:\Clones\CP-MIS\bin\Debug\MetroFramework.dll
 D:\Clones\CP-MIS\bin\Debug\MetroFramework.Fonts.dll
-D:\Clones\CP-MIS\obj\Debug\projectMIS.AdminForm1.resources
+D:\Clones\CP-MIS\obj\Debug\projectMIS.Test.resources
+D:\Clones\CP-MIS\obj\Debug\projectMIS.AdminCP.resources

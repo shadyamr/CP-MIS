@@ -1,7 +1,7 @@
 ﻿
 namespace projectMIS
 {
-    partial class Login
+    partial class Test
     {
         /// <summary>
         /// Required designer variable.
@@ -32,9 +32,9 @@ namespace projectMIS
             this.LoginButton = new System.Windows.Forms.Button();
             this.FirstName_TextBox = new System.Windows.Forms.TextBox();
             this.grd_Employees = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.LastName_Text = new System.Windows.Forms.TextBox();
+            this.ID_Text = new System.Windows.Forms.TextBox();
+            this.Date_ext = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -72,26 +72,27 @@ namespace projectMIS
             this.grd_Employees.TabIndex = 4;
             this.grd_Employees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grd_Employees_CellContentClick);
             // 
-            // textBox1
+            // LastName_Text
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(235, 20);
-            this.textBox1.TabIndex = 5;
+            this.LastName_Text.Location = new System.Drawing.Point(118, 69);
+            this.LastName_Text.Name = "LastName_Text";
+            this.LastName_Text.Size = new System.Drawing.Size(235, 20);
+            this.LastName_Text.TabIndex = 5;
             // 
-            // textBox2
+            // ID_Text
             // 
-            this.textBox2.Location = new System.Drawing.Point(118, 116);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(235, 20);
-            this.textBox2.TabIndex = 5;
+            this.ID_Text.Location = new System.Drawing.Point(118, 116);
+            this.ID_Text.Name = "ID_Text";
+            this.ID_Text.Size = new System.Drawing.Size(235, 20);
+            this.ID_Text.TabIndex = 5;
             // 
-            // textBox3
+            // Date_ext
             // 
-            this.textBox3.Location = new System.Drawing.Point(117, 160);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(235, 20);
-            this.textBox3.TabIndex = 5;
+            this.Date_ext.Enabled = false;
+            this.Date_ext.Location = new System.Drawing.Point(117, 160);
+            this.Date_ext.Name = "Date_ext";
+            this.Date_ext.Size = new System.Drawing.Size(235, 20);
+            this.Date_ext.TabIndex = 5;
             // 
             // label1
             // 
@@ -156,7 +157,7 @@ namespace projectMIS
             this.metroButton1.TabIndex = 9;
             this.metroButton1.Text = "metroButton1";
             // 
-            // Login
+            // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -169,15 +170,16 @@ namespace projectMIS
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Date_ext);
+            this.Controls.Add(this.ID_Text);
+            this.Controls.Add(this.LastName_Text);
             this.Controls.Add(this.grd_Employees);
             this.Controls.Add(this.FirstName_TextBox);
             this.Controls.Add(this.LoginButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Login";
+            this.Name = "Test";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Test_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grd_Employees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -189,9 +191,9 @@ namespace projectMIS
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.TextBox FirstName_TextBox;
         private System.Windows.Forms.DataGridView grd_Employees;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox LastName_Text;
+        private System.Windows.Forms.TextBox ID_Text;
+        private System.Windows.Forms.TextBox Date_ext;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
