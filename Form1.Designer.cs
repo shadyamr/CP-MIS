@@ -29,6 +29,7 @@ namespace projectMIS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LoginButton = new System.Windows.Forms.Button();
             this.FirstName_TextBox = new System.Windows.Forms.TextBox();
             this.grd_Employees = new System.Windows.Forms.DataGridView();
@@ -42,8 +43,19 @@ namespace projectMIS
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.pieChart1 = new LiveCharts.WinForms.PieChart();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.employeeIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salaryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salariesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectDataSet = new projectMIS.projectDataSet();
+            this.salariesTableAdapter = new projectMIS.projectDataSetTableAdapters.SalariesTableAdapter();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Employees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salariesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // LoginButton
@@ -157,12 +169,72 @@ namespace projectMIS
             this.metroButton1.TabIndex = 9;
             this.metroButton1.Text = "metroButton1";
             // 
+            // pieChart1
+            // 
+            this.pieChart1.Location = new System.Drawing.Point(709, 217);
+            this.pieChart1.Name = "pieChart1";
+            this.pieChart1.Size = new System.Drawing.Size(200, 165);
+            this.pieChart1.TabIndex = 10;
+            this.pieChart1.Text = "pieChart1";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.employeeIDDataGridViewTextBoxColumn,
+            this.salaryDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.salariesBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(590, 16);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(242, 163);
+            this.dataGridView1.TabIndex = 11;
+            // 
+            // employeeIDDataGridViewTextBoxColumn
+            // 
+            this.employeeIDDataGridViewTextBoxColumn.DataPropertyName = "EmployeeID";
+            this.employeeIDDataGridViewTextBoxColumn.HeaderText = "EmployeeID";
+            this.employeeIDDataGridViewTextBoxColumn.Name = "employeeIDDataGridViewTextBoxColumn";
+            // 
+            // salaryDataGridViewTextBoxColumn
+            // 
+            this.salaryDataGridViewTextBoxColumn.DataPropertyName = "salary";
+            this.salaryDataGridViewTextBoxColumn.HeaderText = "salary";
+            this.salaryDataGridViewTextBoxColumn.Name = "salaryDataGridViewTextBoxColumn";
+            // 
+            // salariesBindingSource
+            // 
+            this.salariesBindingSource.DataMember = "Salaries";
+            this.salariesBindingSource.DataSource = this.projectDataSet;
+            // 
+            // projectDataSet
+            // 
+            this.projectDataSet.DataSetName = "projectDataSet";
+            this.projectDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // salariesTableAdapter
+            // 
+            this.salariesTableAdapter.ClearBeforeFill = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(721, 399);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(177, 20);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(476, 450);
+            this.ClientSize = new System.Drawing.Size(1109, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.pieChart1);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
@@ -182,6 +254,9 @@ namespace projectMIS
             this.Load += new System.EventHandler(this.Test_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grd_Employees)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salariesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,6 +276,14 @@ namespace projectMIS
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private LiveCharts.WinForms.PieChart pieChart1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private projectDataSet projectDataSet;
+        private System.Windows.Forms.BindingSource salariesBindingSource;
+        private projectDataSetTableAdapters.SalariesTableAdapter salariesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn employeeIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salaryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button2;
     }
 }
 

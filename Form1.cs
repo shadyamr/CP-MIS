@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using LiveCharts;
+using LiveCharts.Wpf;
 
 namespace projectMIS
 {
@@ -22,7 +24,7 @@ namespace projectMIS
             getter g = new getter();
             getter getter = new getter();
             DataGrid Data = new DataGrid();
-            grd_Employees = Data.Employees_DataGrid(grd_Employees);
+            grd_Employees = Data.Audits_Employee_ON_Employee_DataGrid(grd_Employees);
 
 
             getter.Employee employee = getter.GetEmployee(20);
@@ -95,7 +97,26 @@ namespace projectMIS
 
         private void Test_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectDataSet.Salaries' table. You can move, or remove it, as needed.
+            this.salariesTableAdapter.Fill(this.projectDataSet.Salaries);
 
+            pieChart1.LegendLocation = LegendLocation.Bottom;
+
+        }
+        public int z;
+private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+        Func<ChartPoint, string> label = chartpoint => string.Format("{0} {1:P}", chartpoint.Y, (double)chartpoint.Participation);
+
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            SeriesCollection series = new SeriesCollection();
+            foreach (var obj in projectDataSet.Salaries)
+                series.Add(new PieSeries() { Title = obj.EmployeeID.ToString(), Values = new ChartValues<int> { int.Parse(obj.salary.ToString())}, DataLabels = true, LabelPoint = label });
+            pieChart1.Series = series;
         }
     }
 

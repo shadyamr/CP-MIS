@@ -36,3 +36,13 @@ D:\Clones\CP-MIS\bin\Debug\MetroFramework.dll
 D:\Clones\CP-MIS\bin\Debug\MetroFramework.Fonts.dll
 D:\Clones\CP-MIS\obj\Debug\projectMIS.Test.resources
 D:\Clones\CP-MIS\obj\Debug\projectMIS.AdminCP.resources
+D:\Clones\CP-MIS\bin\Debug\FontAwesome.Sharp.dll
+D:\Clones\CP-MIS\bin\Debug\LiveCharts.dll
+D:\Clones\CP-MIS\bin\Debug\LiveCharts.WinForms.dll
+D:\Clones\CP-MIS\bin\Debug\LiveCharts.Wpf.dll
+D:\Clones\CP-MIS\bin\Debug\LiveCharts.pdb
+D:\Clones\CP-MIS\bin\Debug\LiveCharts.xml
+D:\Clones\CP-MIS\bin\Debug\LiveCharts.WinForms.pdb
+D:\Clones\CP-MIS\bin\Debug\LiveCharts.WinForms.xml
+D:\Clones\CP-MIS\bin\Debug\LiveCharts.Wpf.pdb
+D:\Clones\CP-MIS\bin\Debug\LiveCharts.Wpf.xml

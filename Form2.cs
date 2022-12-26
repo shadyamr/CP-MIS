@@ -40,7 +40,24 @@ namespace projectMIS
 
         private void AdminCP_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'projectDataSet.Audits' table. You can move, or remove it, as needed.
+            this.auditsTableAdapter.Fill(this.projectDataSet.Audits);
 
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            functions f = new functions();
+
+            DataGridViewCell cell = dataGridView1.CurrentCell;
+
+            object cellValue = cell.Value;
+
+            string cellValueString = cellValue.ToString();
+
+            f.ExtractNumbers(cellValueString);
+
+            MessageBox.Show(f.ExtractNumbers(cellValueString));
         }
     }
 }
