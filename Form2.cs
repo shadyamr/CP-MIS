@@ -37,5 +37,10 @@ namespace projectMIS
         {
 
         }
+
+        private void AdminCP_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
