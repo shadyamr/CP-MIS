@@ -44,8 +44,13 @@ namespace projectMIS
             this.projectDataSet = new projectMIS.projectDataSet();
             this.salariesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salariesTableAdapter = new projectMIS.projectDataSetTableAdapters.SalariesTableAdapter();
+            this.Products = new System.Windows.Forms.Label();
+            this.Unavailable = new System.Windows.Forms.Label();
+            this.Produc = new System.Windows.Forms.Label();
+            this.unavail = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salariesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +101,7 @@ namespace projectMIS
             // 
             this.LabelCompletedOrders.AutoSize = true;
             this.LabelCompletedOrders.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelCompletedOrders.Location = new System.Drawing.Point(100, 71);
+            this.LabelCompletedOrders.Location = new System.Drawing.Point(108, 71);
             this.LabelCompletedOrders.Name = "LabelCompletedOrders";
             this.LabelCompletedOrders.Size = new System.Drawing.Size(54, 18);
             this.LabelCompletedOrders.TabIndex = 0;
@@ -139,6 +144,10 @@ namespace projectMIS
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Indigo;
+            this.panel2.Controls.Add(this.unavail);
+            this.panel2.Controls.Add(this.Produc);
+            this.panel2.Controls.Add(this.Unavailable);
+            this.panel2.Controls.Add(this.Products);
             this.panel2.Location = new System.Drawing.Point(174, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(165, 94);
@@ -183,6 +192,47 @@ namespace projectMIS
             // 
             this.salariesTableAdapter.ClearBeforeFill = true;
             // 
+            // Products
+            // 
+            this.Products.AutoSize = true;
+            this.Products.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Products.Location = new System.Drawing.Point(3, 5);
+            this.Products.Name = "Products";
+            this.Products.Size = new System.Drawing.Size(94, 23);
+            this.Products.TabIndex = 0;
+            this.Products.Text = "Products";
+            // 
+            // Unavailable
+            // 
+            this.Unavailable.AutoSize = true;
+            this.Unavailable.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unavailable.Location = new System.Drawing.Point(0, 52);
+            this.Unavailable.Name = "Unavailable";
+            this.Unavailable.Size = new System.Drawing.Size(105, 19);
+            this.Unavailable.TabIndex = 1;
+            this.Unavailable.Text = "Unavailable";
+            // 
+            // Produc
+            // 
+            this.Produc.AutoSize = true;
+            this.Produc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Produc.Location = new System.Drawing.Point(100, 19);
+            this.Produc.Name = "Produc";
+            this.Produc.Size = new System.Drawing.Size(65, 19);
+            this.Produc.TabIndex = 2;
+            this.Produc.Text = "Produc";
+            this.Produc.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // unavail
+            // 
+            this.unavail.AutoSize = true;
+            this.unavail.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unavail.Location = new System.Drawing.Point(100, 70);
+            this.unavail.Name = "unavail";
+            this.unavail.Size = new System.Drawing.Size(68, 19);
+            this.unavail.TabIndex = 3;
+            this.unavail.Text = "unavail";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,6 +247,8 @@ namespace projectMIS
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projectDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salariesBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -219,5 +271,9 @@ namespace projectMIS
         private projectDataSet projectDataSet;
         private System.Windows.Forms.BindingSource salariesBindingSource;
         private projectDataSetTableAdapters.SalariesTableAdapter salariesTableAdapter;
+        private System.Windows.Forms.Label unavail;
+        private System.Windows.Forms.Label Produc;
+        private System.Windows.Forms.Label Unavailable;
+        private System.Windows.Forms.Label Products;
     }
 }

@@ -128,6 +128,8 @@ namespace projectMIS
         private void btnEmployees_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
+            OpenChildForm(new Employees());
+            Employees test = new Employees();
         }
 
         private void btnHome_Click(object sender, EventArgs e)

@@ -466,6 +466,10 @@ namespace projectMIS
                     column4.HeaderText = "Employee Status";
                     column4.Name = "EmployeeStatus";
 
+                    DataGridViewTextBoxColumn column5 = new DataGridViewTextBoxColumn();
+                    column4.HeaderText = "Employee Title";
+                    column4.Name = "EmployeeTitle";
+
                     gridTable.Columns.Add(column1);
                     gridTable.Columns.Add(column2);
                     gridTable.Columns.Add(column3);

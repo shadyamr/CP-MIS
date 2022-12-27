@@ -95,3 +95,4 @@ D:\Clones\CP-MIS\bin\Debug\System.Numerics.Vectors.xml
 D:\Clones\CP-MIS\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Clones\CP-MIS\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Clones\CP-MIS\bin\Debug\System.ValueTuple.xml
+D:\Clones\CP-MIS\obj\Debug\projectMIS.Employees.resources
