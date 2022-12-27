@@ -857,18 +857,166 @@ namespace projectMIS
 
     }
 
+    
     public class Update
     {
 
-        public void updateEmployees(int EmployeeID , string firstName, string lastName, string Title, string password, string mobilePhone)
+
+
+
+
+        public void updateSuppliers(int SupplierID, string CompanyName, string ContactName, string Address, string City, int PostalCode, string Country, int Phone)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE Suppliers SET CompanyName = @CompanyName, ContactName = @ContactName, Address = @Address, City = @City, PostalCode = @PostalCode, Country = @Country, Phone = @Phone,  WHERE SupplierID = @SupplierID)", con);
+
+            cmd.Parameters.AddWithValue("@CompanyName", CompanyName);
+            cmd.Parameters.AddWithValue("@ContactName", ContactName);
+            cmd.Parameters.AddWithValue("@Address", Address);
+            cmd.Parameters.AddWithValue("@PostalCode", PostalCode);
+            cmd.Parameters.AddWithValue("@Country", Country);
+            cmd.Parameters.AddWithValue("@Phone", Phone);
+            cmd.Parameters.AddWithValue("@City", City);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+        
+        public void updateOrderDetails(int OrderID, int ProductID, double UnitPrice, int Quantity, double Discount)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE Order Details SET ProductID = @ProductID, UnitPrice = @UnitPrice, Quantity = @Quantity, Discount = @Discount WHERE OrderID = @OrderID)", con);
+
+            cmd.Parameters.AddWithValue("@ProductID", ProductID);
+            cmd.Parameters.AddWithValue("@UnitPrice", UnitPrice);
+            cmd.Parameters.AddWithValue("@Quantity", Quantity);
+            cmd.Parameters.AddWithValue("@Discount", Discount);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+        
+        public void updateProducts(int ProductID, string ProductName, int SupplierID, int QuantityPerUnit, double UnitPrice, int UnitsInStock, int UnitsOnOrder, int ReorderLevel, bool Discontinued)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE Products SET ProductName = @ProductName, SupplierID = @SupplierID, QuantityPerUnit = @QuantityPerUnit, UnitPrice = @UnitPrice, UnitsInStock = @UnitsInStock, UnitsOnOrder = @UnitsOnOrder, ReorderLevel = @ReorderLevel, Discontinued = @Discontinued,  WHERE ProductID = @ProductID)", con);
+
+            cmd.Parameters.AddWithValue("@ProductName", ProductName);
+            cmd.Parameters.AddWithValue("@SupplierID", SupplierID);
+            cmd.Parameters.AddWithValue("@QuantityPerUnit", QuantityPerUnit);
+            cmd.Parameters.AddWithValue("@UnitPrice", UnitPrice);
+            cmd.Parameters.AddWithValue("@UnitsInStock", UnitsInStock);
+            cmd.Parameters.AddWithValue("@UnitsOnOrder", UnitsOnOrder);
+            cmd.Parameters.AddWithValue("@ReorderLevel", ReorderLevel);
+            cmd.Parameters.AddWithValue("@Discontinued", Discontinued);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+        
+        public void updateproductPrice(int ProductID, int UnitPrice, int UnitPriceOrder)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE productPrice SET UnitPrice = @UnitPrice, UnitPriceOrders = @UnitPriceOrders WHERE ProductID = @ProductID)", con);
+
+            cmd.Parameters.AddWithValue("@UnitPrice", UnitPrice);
+            cmd.Parameters.AddWithValue("@UnitPriceOrder", UnitPriceOrder);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+        
+        public void updateProductStats(int ProductID, int UnitsInStock, int QuantityPerUnit, int UnitsOnOrder, int UnitsSold)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE ProductStats SET UnitsInStock = @UnitsInStock, QuantityPerUnit = @QuantityPerUnit, UnitsOnOrder = @UnitsOnOrder, UnitsSold = @UnitsSold, WHERE ProductID= @ProductID)", con);
+
+            cmd.Parameters.AddWithValue("@UnitsInStock", UnitsInStock);
+            cmd.Parameters.AddWithValue("@UnitsSold", UnitsSold);
+            cmd.Parameters.AddWithValue("@QuantityPerUnit", QuantityPerUnit);
+            cmd.Parameters.AddWithValue("@UnitsOnOrder", UnitsOnOrder);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+        
+        public void updateproducts_ordered(int OrderID, int ProductID, int quantity_ordered)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE product_ordered SET ProductID = @ProductID, quantity_ordered = @quantity_ordered WHERE OrderID = @OrderID)", con);
+
+            cmd.Parameters.AddWithValue("@ProductID", ProductID);
+            cmd.Parameters.AddWithValue("@quantity_ordered", quantity_ordered);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+        
+        public void updaterevisit(int OrderID, int CustomerID, int EmployeeID, double revisit_time, string revisit_reason, DateTime revisit_date)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE revisit SET CustomerID = @CustomerID, EmployeeID = @EmployeeID, revisit_time = @revisit_time, revisit_reason = @revisit_reason, revisit_date = @revisit_date,  WHERE OrderID = @OrderID)", con);
+
+            cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
+            cmd.Parameters.AddWithValue("@EmployeeID", EmployeeID);
+            cmd.Parameters.AddWithValue("@revisit_time", revisit_time);
+            cmd.Parameters.AddWithValue("@revisit_reason", revisit_reason);
+            cmd.Parameters.AddWithValue("@revisit_date", revisit_date);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+        
+        public void updateEmployees(int EmployeeID, string firstName, string lastName, string Title, string password, string mobilePhone)
         {
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
 
             SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE Employees SET firstName = @firstName, lastName = @lastName, Title = @Title, password = @password, mobilePhone = @mobilePhone WHERE EmployeeID = @EmployeeID", con);
+            SqlCommand cmd = new SqlCommand("UPDATE Employees SET firstName = @firstName, lastName = @lastName, Title = @Title, password = @password, mobilePhone = @mobilePhone WHERE EmployeeID = @EmployeeID)", con);
 
-            cmd.Parameters.AddWithValue("@EmployeeID", EmployeeID);
             cmd.Parameters.AddWithValue("@firstName", firstName);
             cmd.Parameters.AddWithValue("@lastName", lastName);
             cmd.Parameters.AddWithValue("@Title", Title);
@@ -882,6 +1030,107 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
+        
+        public void updateSalaries(int EmployeeID, double Salary_Change)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE Salaries SET salary = @salary WHERE EmployeeID = @EmployeeID)", con);
+
+            cmd.Parameters.AddWithValue("@Salary_Change", Salary_Change);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+        public void updateSalary_Change(int EmployeeID, double Salary_Change, string notes)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE Salary_Change SET Salary_Change = @Salary_Change, notes = @notes WHERE EmployeeID = @EmployeeID)", con);
+
+            cmd.Parameters.AddWithValue("@Salary_Change", Salary_Change);
+            cmd.Parameters.AddWithValue("@notes", notes);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+        
+        public void updateorder_details(int order_id, bool order_status, int employee_id, int visit_time, int end_of_visit_time, string notes, string feedback)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE order_details SET order_status = @order_status, employee_id = @employee_id, visit_time = @visit_time, end_of_visit_time = @end_of_visit_time, notes = @notes, feedback = @feedback,  WHERE order_id = @order_id)", con);
+
+            cmd.Parameters.AddWithValue("@order_status", order_status);
+            cmd.Parameters.AddWithValue("@employee_id", employee_id);
+            cmd.Parameters.AddWithValue("@visit_time", visit_time);
+            cmd.Parameters.AddWithValue("@end_of_visit_time", end_of_visit_time);
+            cmd.Parameters.AddWithValue("@notes", notes);
+            cmd.Parameters.AddWithValue("@feedback", feedback);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+        
+        public void updateCustomers(int CustomerID, string CompanyName, string ContactName, string Address, string City, int PostalCode, string Country, int Phone, string Region, string ContactTitle)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE Customers SET CompanyName = @CompanyName, ContactName = @ContactName, Address = @Address, City = @City, PostalCode = @PostalCode, Country = @Country, Phone = @Phone, Region = @Region, ContactTitle = @ContactTitle,  WHERE CustomerID = @CustomerID)", con);
+
+            cmd.Parameters.AddWithValue("@CompanyName", CompanyName);
+            cmd.Parameters.AddWithValue("@ContactName", ContactName);
+            cmd.Parameters.AddWithValue("@Address", Address);
+            cmd.Parameters.AddWithValue("@PostalCode", PostalCode);
+            cmd.Parameters.AddWithValue("@Country", Country);
+            cmd.Parameters.AddWithValue("@Phone", Phone);
+            cmd.Parameters.AddWithValue("@City", City);
+            cmd.Parameters.AddWithValue("@Region", Region);
+            cmd.Parameters.AddWithValue("@ContactTitle", ContactTitle);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+
+        public void updateSupplyProduct(int SupplyID, int productID)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE SupplyProduct SET productID = @productID WHERE SupplyID = @SupplyID)", con);
+
+            cmd.Parameters.AddWithValue("@productID", productID);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+
+
+
     }
 
     public class getter 
