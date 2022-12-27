@@ -118,6 +118,8 @@ namespace projectMIS
         private void btnCustomers_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
+            OpenChildForm(new CustomerGUI());
+            CustomerGUI test = new CustomerGUI();
         }
 
         private void btnMarketing_Click(object sender, EventArgs e)

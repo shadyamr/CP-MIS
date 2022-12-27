@@ -120,10 +120,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Classes.cs" />
-    <Compile Include="CustomerGUI.cs">
+    <Compile Include="Forms\CustomerGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerGUI.Designer.cs">
+    <Compile Include="Forms\CustomerGUI.Designer.cs">
       <DependentUpon>CustomerGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Employees.cs">
@@ -157,7 +157,7 @@
       <DependentUpon>projectDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CustomerGUI.resx">
+    <EmbeddedResource Include="Forms\CustomerGUI.resx">
       <DependentUpon>CustomerGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employees.resx">

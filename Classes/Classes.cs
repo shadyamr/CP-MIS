@@ -441,7 +441,7 @@ namespace projectMIS
         public DataGridView Employees_DataGrid(DataGridView gridTable)
         {
             string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
-            string sql = "SELECT EmployeeID, FirstName, LastName, MobilePhone, EmployeeStatus FROM Employees Where EmployeeStatus >= 1";
+            string sql = "SELECT EmployeeID, FirstName, LastName, MobilePhone, EmployeeStatus , Notes FROM Employees Where EmployeeStatus >= 1";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -768,13 +768,13 @@ namespace projectMIS
             }
         }
 
-        public void SETCustomers(string CompanyName, string ContactName, string Address, string City, int PostalCode, string Country, int Phone, string Region, string ContactTitle)
+        public void SETCustomers(string CompanyName, string ContactName, string Address, string City, int PostalCode, string Country, int Phone, string Region)
         {
 
             SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Customers (CompanyName, ContactName, Address, City, PostalCode, Country, Phone, Region, ContactTitle) " +
-                "VALUES (@CompanyName, @ContactName, @Address, @City, @PostalCode, @Country, @Phone, @Region, @ContactTitle)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Customers (CompanyName, ContactName, Address, City, PostalCode, Country, Phone, Region) " +
+                "VALUES (@CompanyName, @ContactName, @Address, @City, @PostalCode, @Country, @Phone, @Region)", con);
 
             cmd.Parameters.AddWithValue("@CompanyName", CompanyName);
             cmd.Parameters.AddWithValue("@ContactName", ContactName);
@@ -784,7 +784,6 @@ namespace projectMIS
             cmd.Parameters.AddWithValue("@Phone", Phone);
             cmd.Parameters.AddWithValue("@City", City);
             cmd.Parameters.AddWithValue("@Region", Region);
-            cmd.Parameters.AddWithValue("@ContactTitle", ContactTitle);
 
             int i = cmd.ExecuteNonQuery();
             con.Close();
@@ -884,10 +883,6 @@ namespace projectMIS
     
     public class Update
     {
-
-
-
-
 
         public void updateSuppliers(int SupplierID, string CompanyName, string ContactName, string Address, string City, int PostalCode, string Country, int Phone)
         {
