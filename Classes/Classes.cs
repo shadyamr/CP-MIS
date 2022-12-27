@@ -852,6 +852,25 @@ namespace projectMIS
             }
         }
 
+        public void SETSupplyProduct(int SupplyID, int productID)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO SupplyProduct (SupplyID, productID) " +
+                "VALUES (@SupplyID, @productID)", con);
+
+            cmd.Parameters.AddWithValue("@SupplyID", SupplyID);
+            cmd.Parameters.AddWithValue("@productID", productID);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+
 
 
 
