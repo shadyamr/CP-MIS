@@ -2,7 +2,7 @@
 -----------------------------------------------------------------------------------------------------
 *** Misr International University            | Faculty of Computer Science
 ***    | 
-*** Developed on //22 by:                | Mohamed Khaled & Abdulrahman Sakr & Shady Amr & mostafa saleh.
+*** Developed on //22 by:                | Mohamed Khaled & Abdelrahman Sakr & Shady Amr & Mostafa Saleh
 -----------------------------------------------------------------------------------------------------
 */
 using System;
