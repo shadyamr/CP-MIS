@@ -10,6 +10,8 @@ using System.IO;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Data;
+using System.Collections.Generic;
 
 namespace projectMIS
 {
@@ -93,7 +95,8 @@ namespace projectMIS
             return count;
         }
 
-        public string Title(string status) {
+        public string Title(string status)
+        {
             int title = int.Parse(status);
 
             if (title == 0)
@@ -116,7 +119,8 @@ namespace projectMIS
             {
                 return "Employee Level 4";
             }
-            else {
+            else
+            {
                 return "undefined";
             }
         }
@@ -379,7 +383,7 @@ namespace projectMIS
             }
         }
 
-        
+
     }
 
     public class DataGrid
@@ -429,7 +433,7 @@ namespace projectMIS
                         String MaderFirst = reader["MadeOnFirstName"].ToString();
                         String MaderSecond = reader["MadeOnLastName"].ToString();
 
-                        gridTable.Rows.Add(reader["Action_Maker_ID"]+ " " + MakerFirst + " " + MakerSecond, reader["Action"]
+                        gridTable.Rows.Add(reader["Action_Maker_ID"] + " " + MakerFirst + " " + MakerSecond, reader["Action"]
                                        , reader["Action_Made_On_ID"] + " " + MaderFirst + " " + MaderSecond, reader["Notes"]);
                     }
                 }
@@ -467,8 +471,8 @@ namespace projectMIS
                     column4.Name = "EmployeeTitle";
 
                     DataGridViewTextBoxColumn column5 = new DataGridViewTextBoxColumn();
-                    column4.HeaderText = "Notes";
-                    column4.Name = "Notes";
+                    column5.HeaderText = "Notes";
+                    column5.Name = "Notes";
 
                     gridTable.Columns.Add(column1);
                     gridTable.Columns.Add(column2);
@@ -480,13 +484,68 @@ namespace projectMIS
                     {
                         string LastName = reader["LastName"].ToString();
                         string Title = f.Title(reader["EmployeeStatus"].ToString());
-                        gridTable.Rows.Add(reader["EmployeeID"], reader["FirstName"] + " " + LastName, reader["MobilePhone"], Title , reader["Notes"]);
+                        gridTable.Rows.Add(reader["EmployeeID"], reader["FirstName"] + " " + LastName, reader["MobilePhone"], Title, reader["Notes"]);
                     }
                 }
             }
 
             return gridTable;
         }
+
+        public DataGridView Employees_BY_ID_DataGrid(DataGridView gridTable, int id)
+        {
+            string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
+            string sql = "SELECT EmployeeID, FirstName, LastName, MobilePhone, EmployeeStatus , Notes FROM Employees Where EmployeeID = @id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand(sql, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
+                        column1.HeaderText = "Employee ID";
+                        column1.Name = "EmployeeID";
+
+                        DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
+                        column2.HeaderText = "Name";
+                        column2.Name = "Name";
+
+                        DataGridViewTextBoxColumn column3 = new DataGridViewTextBoxColumn();
+                        column3.HeaderText = "MobilePhone";
+                        column3.Name = "MobilePhone";
+
+                        DataGridViewTextBoxColumn column4 = new DataGridViewTextBoxColumn();
+                        column4.HeaderText = "Employee Title";
+                        column4.Name = "EmployeeTitle";
+
+                        DataGridViewTextBoxColumn column5 = new DataGridViewTextBoxColumn();
+                        column5.HeaderText = "Notes";
+                        column5.Name = "Notes";
+
+                        gridTable.Columns.Add(column1);
+                        gridTable.Columns.Add(column2);
+                        gridTable.Columns.Add(column3);
+                        gridTable.Columns.Add(column4);
+                        gridTable.Columns.Add(column5);
+
+                        while (reader.Read())
+                        {
+                            string LastName = reader["LastName"].ToString();
+                            string Title = f.Title(reader["EmployeeStatus"].ToString());
+                            gridTable.Rows.Add(reader["EmployeeID"], reader["FirstName"] + " " + LastName, reader["MobilePhone"], Title, reader["Notes"]);
+                        }
+                    }
+                }
+            }
+
+            return gridTable;
+        }
+
     }
 
     public class setter
@@ -536,24 +595,20 @@ namespace projectMIS
             }
         }
 
-        public void SETEmployee(string firstName, string lastName, string Title, string password, string mobilePhone, string filePath)
+        public void SETEmployee(string firstName, string lastName, string password, string mobilePhone)
         {
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
 
             SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
             con.Open();
 
-            byte[] imageData = File.ReadAllBytes(filePath);
-
-            SqlCommand cmd = new SqlCommand("INSERT INTO Employees (FirstName, LastName, Title, Password, MobilePhone , photo) " +
-                "VALUES (@firstName, @lastName, @Title, @password, @mobilePhone ,@photo)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Employees (FirstName, LastName, Password, MobilePhone) " +
+                "VALUES (@firstName, @lastName, @password, @mobilePhone)", con);
 
             cmd.Parameters.AddWithValue("@firstName", firstName);
             cmd.Parameters.AddWithValue("@lastName", lastName);
-            cmd.Parameters.AddWithValue("@Title", Title);
             cmd.Parameters.AddWithValue("@password", hashedPassword);
             cmd.Parameters.AddWithValue("@mobilePhone", mobilePhone);
-            cmd.Parameters.AddWithValue("@photo", filePath);
 
             int i = cmd.ExecuteNonQuery();
             con.Close();
@@ -880,7 +935,7 @@ namespace projectMIS
 
     }
 
-    
+
     public class Update
     {
 
@@ -906,7 +961,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-        
+
         public void updateOrderDetails(int OrderID, int ProductID, double UnitPrice, int Quantity, double Discount)
         {
 
@@ -926,7 +981,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-        
+
         public void updateProducts(int ProductID, string ProductName, int SupplierID, int QuantityPerUnit, double UnitPrice, int UnitsInStock, int UnitsOnOrder, int ReorderLevel, bool Discontinued)
         {
 
@@ -950,7 +1005,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-        
+
         public void updateproductPrice(int ProductID, int UnitPrice, int UnitPriceOrder)
         {
 
@@ -968,7 +1023,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-        
+
         public void updateProductStats(int ProductID, int UnitsInStock, int QuantityPerUnit, int UnitsOnOrder, int UnitsSold)
         {
 
@@ -988,7 +1043,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-        
+
         public void updateproducts_ordered(int OrderID, int ProductID, int quantity_ordered)
         {
 
@@ -1006,7 +1061,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-        
+
         public void updaterevisit(int OrderID, int CustomerID, int EmployeeID, double revisit_time, string revisit_reason, DateTime revisit_date)
         {
 
@@ -1027,7 +1082,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-        
+
         public void updateEmployees(int EmployeeID, string firstName, string lastName, string Title, string password, string mobilePhone)
         {
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
@@ -1049,7 +1104,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-        
+
         public void updateSalaries(int EmployeeID, double Salary_Change)
         {
 
@@ -1066,6 +1121,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
+
         public void updateSalary_Change(int EmployeeID, double Salary_Change, string notes)
         {
 
@@ -1083,7 +1139,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-        
+
         public void updateorder_details(int order_id, bool order_status, int employee_id, int visit_time, int end_of_visit_time, string notes, string feedback)
         {
 
@@ -1105,7 +1161,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-        
+
         public void updateCustomers(int CustomerID, string CompanyName, string ContactName, string Address, string City, int PostalCode, string Country, int Phone, string Region, string ContactTitle)
         {
 
@@ -1148,7 +1204,6 @@ namespace projectMIS
             }
         }
 
-
         public void UpdateFeedback(int OrderID, int EmployeeRate, int Products_Rate, int In_Time, string notes, int overall_Rate)
         {
 
@@ -1170,7 +1225,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-        
+
         public void updateOrders(int OrderID, int CustomerID, int EmployeeID, DateTime OrderDate, DateTime RequiredDate, DateTime ShippedDate, double Price, string ShipName, string ShipAddress, string ShipCity, string ShipRegion, int ShipPostalCode, string ShipCountry)
         {
 
@@ -1197,7 +1252,7 @@ namespace projectMIS
                 MessageBox.Show("Data Saved");
             }
         }
-        
+
         public void updateSupply(int SupplyID, int SupplierID, int SupplyPrice)
         {
 
@@ -1220,93 +1275,142 @@ namespace projectMIS
 
     }
 
-    public class getter 
+    public class getter
     {
         public class Employee
         {
+            class ConnectionToSql
+            {
+                public static SqlConnection getConnection()
+                {
+                    return new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+                }
+            }
             public int EmployeeID { get; set; }
             public string FirstName { get; set; }
             public string LastName { get; set; }
             public string MobilePhone { get; set; }
+            public string Notes { get; set; }
             public DateTime HireDate { get; set; }
             public DateTime FireDate { get; set; }
-            public string photo { get; set; }
 
-
-        }
-
-        private readonly string _connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
-
-        public Employee GetEmployee(int employeeId)
-        {
-            Employee employee = null;
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            public void insertMassiveData(IEnumerable<Employee> detailsList)
             {
-                connection.Open();
-
-                string sql = "SELECT * FROM Employees WHERE EmployeeID = @employeeId";
-
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                //create table
+                var table = new DataTable();
+                table.Columns.Add("EmployeeID", typeof(int));
+                table.Columns.Add("FirstName", typeof(string));
+                table.Columns.Add("LastName", typeof(string));
+                table.Columns.Add("MobilePhone", typeof(int));
+                table.Columns.Add("Notes", typeof(string));
+                foreach (var itemDetail in detailsList)
                 {
-                    command.Parameters.AddWithValue("@employeeId", employeeId);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
+                    table.Rows.Add(new object[]
                         {
-                            employee = new Employee
+                        itemDetail.EmployeeID,
+                        itemDetail.FirstName,
+                        itemDetail.LastName,
+                        itemDetail.MobilePhone,
+                        itemDetail.Notes
+                        });
+                }
+                //insert to db
+                using (var connection = ConnectionToSql.getConnection())
+                {
+                    connection.Open();
+                    using (SqlTransaction transaction = connection.BeginTransaction())
+                    {
+                        using (SqlBulkCopy bulkCopy = new SqlBulkCopy(connection, SqlBulkCopyOptions.Default, transaction))
+                        {
+                            try
                             {
-                                EmployeeID = (int)reader["EmployeeID"],
-                                FirstName = (string)reader["FirstName"],
-                                LastName = (string)reader["LastName"],
-                                MobilePhone = (string)reader["MobilePhone"],
-                                HireDate = (DateTime)reader["HireDate"],
-                                photo = (string)reader["Photo"]
-                            };
+                                bulkCopy.DestinationTableName = "Employees";
+                                bulkCopy.WriteToServer(table);
+                                transaction.Commit();
+                            }
+                            catch (Exception)
+                            {
+                                transaction.Rollback();
+                                connection.Close();
+                                throw;
+                            }
                         }
                     }
                 }
             }
 
-            return employee;
-        }
+            private readonly string _connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
 
-        public Employee GetFiredEmployee(int employeeId)
-        {
-            Employee employee = null;
-
-            using (SqlConnection connection = new SqlConnection(_connectionString))
+            public Employee GetEmployee(int employeeId)
             {
-                connection.Open();
+                Employee employee = null;
 
-                string sql = "SELECT * FROM Employees WHERE EmployeeID = @employeeId";
-
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                using (SqlConnection connection = new SqlConnection(_connectionString))
                 {
-                    command.Parameters.AddWithValue("@employeeId", employeeId);
+                    connection.Open();
 
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    string sql = "SELECT * FROM Employees WHERE EmployeeID = @employeeId";
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
                     {
-                        if (reader.Read())
+                        command.Parameters.AddWithValue("@employeeId", employeeId);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            employee = new Employee
+                            if (reader.Read())
                             {
-                                EmployeeID = (int)reader["EmployeeID"],
-                                FirstName = (string)reader["FirstName"],
-                                LastName = (string)reader["LastName"],
-                                MobilePhone = (string)reader["MobilePhone"],
-                                HireDate = (DateTime)reader["HireDate"],
-                                FireDate = (DateTime)reader["FireDate"],
-                                photo = (string)reader["Photo"]
-                            };
+                                employee = new Employee
+                                {
+                                    EmployeeID = (int)reader["EmployeeID"],
+                                    FirstName = (string)reader["FirstName"],
+                                    LastName = (string)reader["LastName"],
+                                    MobilePhone = (string)reader["MobilePhone"],
+                                    HireDate = (DateTime)reader["HireDate"]
+                                };
+                            }
                         }
                     }
                 }
+
+                return employee;
             }
 
-            return employee;
+
+
+            public Employee GetFiredEmployee(int employeeId)
+            {
+                Employee employee = null;
+
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+
+                    string sql = "SELECT * FROM Employees WHERE EmployeeID = @employeeId";
+
+                    using (SqlCommand command = new SqlCommand(sql, connection))
+                    {
+                        command.Parameters.AddWithValue("@employeeId", employeeId);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                employee = new Employee
+                                {
+                                    EmployeeID = (int)reader["EmployeeID"],
+                                    FirstName = (string)reader["FirstName"],
+                                    LastName = (string)reader["LastName"],
+                                    MobilePhone = (string)reader["MobilePhone"],
+                                    HireDate = (DateTime)reader["HireDate"],
+                                    FireDate = (DateTime)reader["FireDate"]
+                                };
+                            }
+                        }
+                    }
+                }
+
+                return employee;
+            }
         }
     }
-
-    }
+}

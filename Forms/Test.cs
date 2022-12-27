@@ -24,16 +24,16 @@ namespace projectMIS
             getter g = new getter();
             getter getter = new getter();
             DataGrid Data = new DataGrid();
+            getter.Employee em = new getter.Employee();
             grd_Employees = Data.Audits_Employee_ON_Employee_DataGrid(grd_Employees);
 
 
-            getter.Employee employee = getter.GetEmployee(20);
+            getter.Employee employee = em.GetEmployee(20);
 
             FirstName_TextBox.Text = employee.FirstName;
             LastName_Text.Text = employee.LastName;
             ID_Text.Text = employee.EmployeeID.ToString();
             Date_ext.Text = employee.HireDate.ToString();
-            pictureBox1.ImageLocation = employee.photo;
 
         }
 

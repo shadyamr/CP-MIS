@@ -51,6 +51,7 @@ namespace projectMIS
             this.TXT_Country = new MetroFramework.Controls.MetroTextBox();
             this.TXT_Phone = new MetroFramework.Controls.MetroTextBox();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SearchGRD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.feedbackBindingSource)).BeginInit();
@@ -63,6 +64,7 @@ namespace projectMIS
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SeaShell;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.SearchGRD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.SearchGRD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchGRD.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.SearchGRD.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.SearchGRD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -104,6 +106,7 @@ namespace projectMIS
             // 
             // SearchTXT
             // 
+            this.SearchTXT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchTXT.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.SearchTXT.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchTXT.Location = new System.Drawing.Point(81, 12);
@@ -114,6 +117,7 @@ namespace projectMIS
             // 
             // SearchLBL
             // 
+            this.SearchLBL.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchLBL.AutoSize = true;
             this.SearchLBL.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchLBL.Location = new System.Drawing.Point(12, 14);
@@ -124,9 +128,10 @@ namespace projectMIS
             // 
             // SearchBTN
             // 
+            this.SearchBTN.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchBTN.FlatAppearance.BorderSize = 3;
             this.SearchBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchBTN.Location = new System.Drawing.Point(579, 4);
+            this.SearchBTN.Location = new System.Drawing.Point(589, 4);
             this.SearchBTN.Name = "SearchBTN";
             this.SearchBTN.Size = new System.Drawing.Size(75, 28);
             this.SearchBTN.TabIndex = 3;
@@ -150,6 +155,7 @@ namespace projectMIS
             // 
             // TXT_CompanyName
             // 
+            this.TXT_CompanyName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TXT_CompanyName.Location = new System.Drawing.Point(38, 184);
             this.TXT_CompanyName.Name = "TXT_CompanyName";
             this.TXT_CompanyName.Size = new System.Drawing.Size(224, 23);
@@ -159,6 +165,7 @@ namespace projectMIS
             // 
             // TXT_ContactName
             // 
+            this.TXT_ContactName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TXT_ContactName.Location = new System.Drawing.Point(430, 184);
             this.TXT_ContactName.Name = "TXT_ContactName";
             this.TXT_ContactName.Size = new System.Drawing.Size(224, 23);
@@ -168,6 +175,7 @@ namespace projectMIS
             // 
             // TXT_Address
             // 
+            this.TXT_Address.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TXT_Address.Location = new System.Drawing.Point(38, 221);
             this.TXT_Address.Name = "TXT_Address";
             this.TXT_Address.Size = new System.Drawing.Size(224, 23);
@@ -177,6 +185,7 @@ namespace projectMIS
             // 
             // TXT_City
             // 
+            this.TXT_City.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TXT_City.Location = new System.Drawing.Point(430, 221);
             this.TXT_City.Name = "TXT_City";
             this.TXT_City.Size = new System.Drawing.Size(224, 23);
@@ -186,6 +195,7 @@ namespace projectMIS
             // 
             // TXT_Region
             // 
+            this.TXT_Region.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TXT_Region.Location = new System.Drawing.Point(38, 259);
             this.TXT_Region.Name = "TXT_Region";
             this.TXT_Region.Size = new System.Drawing.Size(224, 23);
@@ -195,6 +205,7 @@ namespace projectMIS
             // 
             // TXT_PostalCode
             // 
+            this.TXT_PostalCode.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TXT_PostalCode.Location = new System.Drawing.Point(430, 259);
             this.TXT_PostalCode.Name = "TXT_PostalCode";
             this.TXT_PostalCode.Size = new System.Drawing.Size(224, 23);
@@ -204,6 +215,7 @@ namespace projectMIS
             // 
             // TXT_Country
             // 
+            this.TXT_Country.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TXT_Country.Location = new System.Drawing.Point(38, 298);
             this.TXT_Country.Name = "TXT_Country";
             this.TXT_Country.Size = new System.Drawing.Size(224, 23);
@@ -213,6 +225,7 @@ namespace projectMIS
             // 
             // TXT_Phone
             // 
+            this.TXT_Phone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TXT_Phone.Location = new System.Drawing.Point(430, 298);
             this.TXT_Phone.Name = "TXT_Phone";
             this.TXT_Phone.Size = new System.Drawing.Size(224, 23);
@@ -222,6 +235,7 @@ namespace projectMIS
             // 
             // metroButton1
             // 
+            this.metroButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.metroButton1.Location = new System.Drawing.Point(269, 348);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(156, 23);
@@ -229,12 +243,24 @@ namespace projectMIS
             this.metroButton1.Text = "Add Customer";
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(286, 170);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 19);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Insert Customer";
+            // 
             // CustomerGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(687, 402);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.TXT_Phone);
             this.Controls.Add(this.TXT_Country);
@@ -277,5 +303,6 @@ namespace projectMIS
         private MetroFramework.Controls.MetroTextBox TXT_Country;
         private MetroFramework.Controls.MetroTextBox TXT_Phone;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.Label label1;
     }
 }

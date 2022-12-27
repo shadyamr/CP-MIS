@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static projectMIS.getter;
 
 namespace projectMIS
 {
@@ -25,6 +20,7 @@ namespace projectMIS
 
         private void Employees_Load(object sender, EventArgs e)
         {
+            dataGridView1.AllowUserToAddRows = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -40,6 +36,29 @@ namespace projectMIS
             f.ExtractNumbers(cellValueString);
 
             MessageBox.Show(f.ExtractNumbers(cellValueString));
+        }
+
+        private void SearchBTN_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+            DataGrid Data = new DataGrid();
+            dataGridView1 = Data.Employees_BY_ID_DataGrid(dataGridView1, int.Parse(SearchTXT.Text));
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            string FirstName = TXT_FirstName.Text.ToString();
+            string LastName = TXT_FirstName.Text.ToString();
+            string password = TXT_password.Text.ToString();
+            string MobilePhone = TXT_MobilePhone.Text.ToString();
+            setter s = new setter();
+            s.SETEmployee(FirstName, LastName, password, MobilePhone);
+        }
+
+        private void metroTextBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
