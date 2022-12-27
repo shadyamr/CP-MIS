@@ -463,23 +463,24 @@ namespace projectMIS
                     column3.Name = "MobilePhone";
 
                     DataGridViewTextBoxColumn column4 = new DataGridViewTextBoxColumn();
-                    column4.HeaderText = "Employee Status";
-                    column4.Name = "EmployeeStatus";
-
-                    DataGridViewTextBoxColumn column5 = new DataGridViewTextBoxColumn();
                     column4.HeaderText = "Employee Title";
                     column4.Name = "EmployeeTitle";
+
+                    DataGridViewTextBoxColumn column5 = new DataGridViewTextBoxColumn();
+                    column4.HeaderText = "Notes";
+                    column4.Name = "Notes";
 
                     gridTable.Columns.Add(column1);
                     gridTable.Columns.Add(column2);
                     gridTable.Columns.Add(column3);
                     gridTable.Columns.Add(column4);
+                    gridTable.Columns.Add(column5);
 
                     while (reader.Read())
                     {
                         string LastName = reader["LastName"].ToString();
                         string Title = f.Title(reader["EmployeeStatus"].ToString());
-                        gridTable.Rows.Add(reader["EmployeeID"], reader["FirstName"] + " " + LastName, reader["MobilePhone"], Title);
+                        gridTable.Rows.Add(reader["EmployeeID"], reader["FirstName"] + " " + LastName, reader["MobilePhone"], Title , reader["Notes"]);
                     }
                 }
             }
