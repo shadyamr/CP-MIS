@@ -1134,11 +1134,79 @@ namespace projectMIS
         public void updateSupplyProduct(int SupplyID, int productID)
         {
 
-            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
             con.Open();
             SqlCommand cmd = new SqlCommand("UPDATE SupplyProduct SET productID = @productID WHERE SupplyID = @SupplyID)", con);
 
             cmd.Parameters.AddWithValue("@productID", productID);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+
+
+        public void UpdateFeedback(int OrderID, int EmployeeRate, int Products_Rate, int In_Time, string notes, int overall_Rate)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE Feedback SET Employee_Rate = @Employee_Rate, Products_Rate = @Products_Rate, In_Time = @In_Time, notes = @notes, overall_Rate = @overall_Rate WHERE OrderID = @OrderID)", con);
+
+            cmd.Parameters.AddWithValue("@OrderID", OrderID);
+            cmd.Parameters.AddWithValue("@EmployeeRate", EmployeeRate);
+            cmd.Parameters.AddWithValue("@Products_Rate", Products_Rate);
+            cmd.Parameters.AddWithValue("@In_Time", In_Time);
+            cmd.Parameters.AddWithValue("@notes", notes);
+            cmd.Parameters.AddWithValue("@overall_Rate", overall_Rate);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+        
+        public void updateOrders(int OrderID, int CustomerID, int EmployeeID, DateTime OrderDate, DateTime RequiredDate, DateTime ShippedDate, double Price, string ShipName, string ShipAddress, string ShipCity, string ShipRegion, int ShipPostalCode, string ShipCountry)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE Orders SET CustomerID = @CustomerID, EmployeeID = @EmployeeID, OrderDate = @OrderDate, RequiredDate = @RequiredDate, ShippedDate = @ShippedDate, Price = @Price, ShipName = @ShipName, ShipAddress = @ShipAddress, ShipCity = @ShipCity, ShipRegion = @ShipRegion, ShipPostalCode = @ShipPostalCode, ShipCountry = @ShipCountry,  WHERE OrderID = @OrderID)", con);
+
+            cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
+            cmd.Parameters.AddWithValue("@EmployeeID", EmployeeID);
+            cmd.Parameters.AddWithValue("@OrderDate", OrderDate);
+            cmd.Parameters.AddWithValue("@ShippedDate", ShippedDate);
+            cmd.Parameters.AddWithValue("@Price", Price);
+            cmd.Parameters.AddWithValue("@ShipName", ShipName);
+            cmd.Parameters.AddWithValue("@ShipAddress", ShipAddress);
+            cmd.Parameters.AddWithValue("@ShipRegion", ShipRegion);
+            cmd.Parameters.AddWithValue("@ShipPostalCode", ShipPostalCode);
+            cmd.Parameters.AddWithValue("@ShipCountry", ShipCountry);
+            cmd.Parameters.AddWithValue("@ShipCity", ShipCity);
+
+            int i = cmd.ExecuteNonQuery();
+            con.Close();
+            if (i != 0)
+            {
+                MessageBox.Show("Data Saved");
+            }
+        }
+        
+        public void updateSupply(int SupplyID, int SupplierID, int SupplyPrice)
+        {
+
+            SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE Supply SET SupplierID = @SupplierID, SupplyPrice = @SupplyPrice WHERE SupplyID = @SupplyID)", con);
+
+            cmd.Parameters.AddWithValue("@SupplierID", SupplierID);
+            cmd.Parameters.AddWithValue("@SupplyPrice", SupplyPrice);
 
             int i = cmd.ExecuteNonQuery();
             con.Close();
