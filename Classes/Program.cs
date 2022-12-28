@@ -1,4 +1,5 @@
-﻿using System;
+﻿using projectMIS.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace projectMIS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminCP());
+            Application.Run(new SalesmanView());
         }
     }
 }
