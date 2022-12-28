@@ -2,3 +2,7 @@
 .vs/projectMIS/v17/.suo
 *.cache
 obj/Debug/TempPE/projectDataSet.Designer.cs.dll
+obj/Debug/DesignTimeResolveAssemblyReferences.cache
+obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+obj/Debug/projectMIS.csproj.AssemblyReference.cache
+obj/Debug/TempPE/projectDataSet.Designer.cs.dll
