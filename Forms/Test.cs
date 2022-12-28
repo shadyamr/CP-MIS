@@ -56,7 +56,7 @@ namespace projectMIS
                             mainForm.Show();
                             MessageBox.Show("Good");
             */
-             s.SETEmployee("Mohamed", "Khaled", "Employee", "123456", "01009593303" , imgpath);
+             s.SETEmployee("Mohamed", "Khaled", "123456", "01009593303");
             a.demote("20", "19");
             //u.updateEmployees(19,"sakr","Khaled","Title","123456","Mohamed");
             // DateTime currentDate = DateTime.Now;

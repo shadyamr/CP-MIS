@@ -38,16 +38,16 @@ namespace projectMIS
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.unavail = new System.Windows.Forms.Label();
+            this.Produc = new System.Windows.Forms.Label();
+            this.Unavailable = new System.Windows.Forms.Label();
+            this.Products = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.projectDataSet = new projectMIS.projectDataSet();
             this.salariesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salariesTableAdapter = new projectMIS.projectDataSetTableAdapters.SalariesTableAdapter();
-            this.Products = new System.Windows.Forms.Label();
-            this.Unavailable = new System.Windows.Forms.Label();
-            this.Produc = new System.Windows.Forms.Label();
-            this.unavail = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -75,7 +75,7 @@ namespace projectMIS
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.LabelCompletedOrders);
             this.panel1.Controls.Add(this.LabelOrders);
@@ -143,7 +143,7 @@ namespace projectMIS
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Indigo;
+            this.panel2.BackColor = System.Drawing.Color.SeaShell;
             this.panel2.Controls.Add(this.unavail);
             this.panel2.Controls.Add(this.Produc);
             this.panel2.Controls.Add(this.Unavailable);
@@ -152,6 +152,47 @@ namespace projectMIS
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(165, 94);
             this.panel2.TabIndex = 1;
+            // 
+            // unavail
+            // 
+            this.unavail.AutoSize = true;
+            this.unavail.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unavail.Location = new System.Drawing.Point(100, 70);
+            this.unavail.Name = "unavail";
+            this.unavail.Size = new System.Drawing.Size(68, 19);
+            this.unavail.TabIndex = 3;
+            this.unavail.Text = "unavail";
+            // 
+            // Produc
+            // 
+            this.Produc.AutoSize = true;
+            this.Produc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Produc.Location = new System.Drawing.Point(100, 19);
+            this.Produc.Name = "Produc";
+            this.Produc.Size = new System.Drawing.Size(65, 19);
+            this.Produc.TabIndex = 2;
+            this.Produc.Text = "Produc";
+            this.Produc.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // Unavailable
+            // 
+            this.Unavailable.AutoSize = true;
+            this.Unavailable.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unavailable.Location = new System.Drawing.Point(0, 52);
+            this.Unavailable.Name = "Unavailable";
+            this.Unavailable.Size = new System.Drawing.Size(105, 19);
+            this.Unavailable.TabIndex = 1;
+            this.Unavailable.Text = "Unavailable";
+            // 
+            // Products
+            // 
+            this.Products.AutoSize = true;
+            this.Products.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Products.Location = new System.Drawing.Point(3, 5);
+            this.Products.Name = "Products";
+            this.Products.Size = new System.Drawing.Size(94, 23);
+            this.Products.TabIndex = 0;
+            this.Products.Text = "Products";
             // 
             // panel3
             // 
@@ -191,47 +232,6 @@ namespace projectMIS
             // salariesTableAdapter
             // 
             this.salariesTableAdapter.ClearBeforeFill = true;
-            // 
-            // Products
-            // 
-            this.Products.AutoSize = true;
-            this.Products.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Products.Location = new System.Drawing.Point(3, 5);
-            this.Products.Name = "Products";
-            this.Products.Size = new System.Drawing.Size(94, 23);
-            this.Products.TabIndex = 0;
-            this.Products.Text = "Products";
-            // 
-            // Unavailable
-            // 
-            this.Unavailable.AutoSize = true;
-            this.Unavailable.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Unavailable.Location = new System.Drawing.Point(0, 52);
-            this.Unavailable.Name = "Unavailable";
-            this.Unavailable.Size = new System.Drawing.Size(105, 19);
-            this.Unavailable.TabIndex = 1;
-            this.Unavailable.Text = "Unavailable";
-            // 
-            // Produc
-            // 
-            this.Produc.AutoSize = true;
-            this.Produc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Produc.Location = new System.Drawing.Point(100, 19);
-            this.Produc.Name = "Produc";
-            this.Produc.Size = new System.Drawing.Size(65, 19);
-            this.Produc.TabIndex = 2;
-            this.Produc.Text = "Produc";
-            this.Produc.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // unavail
-            // 
-            this.unavail.AutoSize = true;
-            this.unavail.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unavail.Location = new System.Drawing.Point(100, 70);
-            this.unavail.Name = "unavail";
-            this.unavail.Size = new System.Drawing.Size(68, 19);
-            this.unavail.TabIndex = 3;
-            this.unavail.Text = "unavail";
             // 
             // Dashboard
             // 
