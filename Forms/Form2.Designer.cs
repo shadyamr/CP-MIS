@@ -44,6 +44,10 @@ namespace projectMIS
             this.Maximize = new FontAwesome.Sharp.IconButton();
             this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
             this.btnEmployees = new FontAwesome.Sharp.IconButton();
+<<<<<<< Updated upstream
+=======
+            this.btnMarketing = new FontAwesome.Sharp.IconButton();
+>>>>>>> Stashed changes
             this.btnCustomers = new FontAwesome.Sharp.IconButton();
             this.btnProducts = new FontAwesome.Sharp.IconButton();
             this.btnOrders = new FontAwesome.Sharp.IconButton();
@@ -337,7 +341,11 @@ namespace projectMIS
             this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
             this.btnHome.Image = global::projectMIS.Properties.Resources.logo;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             this.btnHome.Location = new System.Drawing.Point(0, 0);
+=======
+            this.btnHome.Location = new System.Drawing.Point(0, -4);
+>>>>>>> Stashed changes
 =======
             this.btnHome.Location = new System.Drawing.Point(0, -4);
 >>>>>>> Stashed changes
@@ -349,6 +357,7 @@ namespace projectMIS
             this.btnHome.TabStop = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
             // panelTitleBar
             // 
@@ -463,6 +472,8 @@ namespace projectMIS
             this.panelDesktop.TabIndex = 3;
             this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
             // 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
             // iconToolStripButton1
