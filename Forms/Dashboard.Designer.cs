@@ -47,11 +47,6 @@ namespace projectMIS
             this.employeestxt = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.projectDataSet = new projectMIS.projectDataSet();
             this.salariesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -63,7 +58,6 @@ namespace projectMIS
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salariesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +72,6 @@ namespace projectMIS
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 3, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 1);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
@@ -254,58 +247,6 @@ namespace projectMIS
             this.label3.TabIndex = 0;
             this.label3.Text = "Employees";
             // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(152)))), ((int)(((byte)(120)))));
-            this.panel4.Controls.Add(this.label11);
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.label10);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Location = new System.Drawing.Point(516, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(168, 94);
-            this.panel4.TabIndex = 3;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(100, 70);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 19);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "unavail";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(0, 52);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 19);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Unavailable";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(97, 28);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 19);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Produc";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 23);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Products";
-            // 
             // pieChart1
             // 
             this.pieChart1.Location = new System.Drawing.Point(449, 107);
@@ -313,6 +254,7 @@ namespace projectMIS
             this.pieChart1.Size = new System.Drawing.Size(235, 254);
             this.pieChart1.TabIndex = 1;
             this.pieChart1.Text = "pieChart1";
+            this.pieChart1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.pieChart1_ChildChanged);
             // 
             // projectDataSet
             // 
@@ -369,8 +311,6 @@ namespace projectMIS
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projectDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salariesBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -384,7 +324,6 @@ namespace projectMIS
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         private LiveCharts.WinForms.PieChart pieChart1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
@@ -402,10 +341,6 @@ namespace projectMIS
         private System.Windows.Forms.Label employeestxt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Integration.ElementHost gauge;
         private LiveCharts.Wpf.Gauge gauge1;
         private System.Windows.Forms.Label label12;

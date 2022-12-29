@@ -203,4 +203,6 @@ D:\Programming\CP-MIS\obj\Debug\projectMIS.csproj.CoreCompileInputs.cache
 D:\Programming\CP-MIS\obj\Debug\projectMIS.csproj.CopyComplete
 D:\Programming\CP-MIS\obj\Debug\projectMIS.exe
 D:\Programming\CP-MIS\obj\Debug\projectMIS.pdb
-D:\Clones\CP-MIS\obj\Debug\projectMIS.Forms.SalesmanView.resources
+D:\Clones\CP-MIS\obj\Debug\projectMIS.Form1.resources
+D:\Clones\CP-MIS\obj\Debug\projectMIS.EmployeeAction.resources
+D:\Clones\CP-MIS\obj\Debug\projectMIS.Login.resources

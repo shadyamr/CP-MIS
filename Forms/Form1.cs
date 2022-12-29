@@ -7,18 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using System.Data.SqlClient;
+using System.Windows.Forms.DataVisualization.Charting;
+using FontAwesome.Sharp;
 
-namespace projectMIS.Forms
+namespace projectMIS
 {
-    public partial class SalesmanView : Form
+    public partial class Form1 : Form
     {
-        public SalesmanView()
+        public Form1()
         {
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            Login l = new Login();
+            int title = l.title;
             setter s = new setter();
             string CompanyName = TXT_NAME.Text.ToString();
             string ContactName = TXT_Owner.Text.ToString();
@@ -27,8 +38,7 @@ namespace projectMIS.Forms
             string Budget = TXT_BUDGET.Text.ToString();
             string Email = TXT_EMAIL.Text.ToString();
             string notes = TXT_Notes.Text.ToString();
-            s.SETOrders(1, 19, CompanyName, ContactName, Phone, Address , int.Parse(Budget) , Email, notes);
+            s.SETOrders(1, 19, CompanyName, ContactName, Phone, Address, int.Parse(Budget), Email, notes);
         }
-
     }
 }

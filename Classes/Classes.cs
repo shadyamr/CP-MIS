@@ -6,12 +6,11 @@
 -----------------------------------------------------------------------------------------------------
 */
 using System;
-using System.IO;
-using System.Data.SqlClient;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
-using System.Data;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace projectMIS
 {
@@ -75,6 +74,38 @@ namespace projectMIS
             }
         }
 
+        public int countproducts()
+        {
+            string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Products Where Discontinued > 0", con);
+                object result = cmd.ExecuteScalar();
+                int sum = Convert.ToInt32(result);
+
+                return sum;
+            }
+        }
+
+        public int countdiscproducts()
+        {
+            string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Products Where Discontinued = 0", con);
+                object result = cmd.ExecuteScalar();
+                int sum = Convert.ToInt32(result);
+
+                return sum;
+            }
+        }
+
         public int firedcount()
         {
             string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
@@ -125,6 +156,30 @@ namespace projectMIS
             }
 
             return count;
+        }
+
+        public int SelectTitle(int id)
+        {
+            int count = 0;
+            string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
+            string query = "SELECT EmployeeStatus FROM Employees WHERE EmployeeID = @id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    count = (int)command.ExecuteScalar();
+                }
+            }
+            if (count == 10)
+            {
+                return 1;
+            }
+            else {
+                return 2;
+            }
         }
 
         public string Title(string status)

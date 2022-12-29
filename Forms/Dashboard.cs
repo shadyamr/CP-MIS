@@ -24,6 +24,12 @@ namespace projectMIS
             LabelOrders.Text = countorders.ToString();
             int countDoneorders = f.CountDoneOrders();
             LabelCompletedOrders.Text = countDoneorders.ToString();
+
+            int countproducts = f.countproducts();
+            Produc.Text = countproducts.ToString();
+            int countdisproducts = f.countdiscproducts();
+            unavail.Text = countdisproducts.ToString();
+
             pieChart1.Series.Add(new PieSeries
             {
                 Title = "Sponsors",
@@ -59,6 +65,11 @@ namespace projectMIS
         }
 
         private void Products_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pieChart1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
 
         }

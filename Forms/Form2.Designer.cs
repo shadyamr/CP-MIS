@@ -336,11 +336,11 @@ namespace projectMIS
             // 
             this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
             this.btnHome.Image = global::projectMIS.Properties.Resources.logo;
-<<<<<<< Updated upstream
+
             this.btnHome.Location = new System.Drawing.Point(0, 0);
-=======
+
             this.btnHome.Location = new System.Drawing.Point(0, -4);
->>>>>>> Stashed changes
+
             this.btnHome.Margin = new System.Windows.Forms.Padding(2);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(165, 114);
@@ -349,7 +349,7 @@ namespace projectMIS
             this.btnHome.TabStop = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-<<<<<<< Updated upstream
+
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(182)))), ((int)(((byte)(92)))));
@@ -463,8 +463,7 @@ namespace projectMIS
             this.panelDesktop.TabIndex = 3;
             this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
             // 
-=======
->>>>>>> Stashed changes
+
             // iconToolStripButton1
             // 
             this.iconToolStripButton1.IconChar = FontAwesome.Sharp.IconChar.None;
