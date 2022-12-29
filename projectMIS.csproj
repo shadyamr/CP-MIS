@@ -218,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\logo.png" />
     <None Include="Resources\Untitled design %282%29.png" />
     <None Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\Untitled design.png" />

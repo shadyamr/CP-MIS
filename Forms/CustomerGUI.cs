@@ -106,15 +106,16 @@ namespace projectMIS
         private void metroButton1_Click(object sender, EventArgs e)
         {
             setter s = new setter();
+            functions f = new functions();
             string companyname = TXT_CompanyName.Text.ToString();
             string ContactName = TXT_ContactName.Text.ToString();
             string Address = TXT_Address.Text.ToString();
             string City = TXT_City.Text.ToString();
-            int PostalCode = int.Parse(TXT_PostalCode.Text);
+            string PostalCode = f.ExtractNumbers(TXT_PostalCode.Text.ToString());
             string Country = TXT_Country.Text.ToString();
-            int Phone = int.Parse(TXT_Phone.Text);
+            string Phone = f.ExtractNumbers(TXT_Phone.Text.ToString());
             string Region = TXT_Region.Text.ToString();
-            s.SETCustomers(companyname,ContactName,Address,City,PostalCode,Country,Phone,Region);
+            s.SETCustomers(companyname,ContactName,Address,City,int.Parse(PostalCode),Country,int.Parse(Phone),Region);
         }
     }
 }

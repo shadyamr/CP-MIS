@@ -36,12 +36,13 @@ namespace projectMIS
         //Structs
         private struct RGBColors
         {
-           public static Color color1=Color.FromArgb(172,126,241);
-           public static Color color2=Color.FromArgb(249,118,176);
-           public static Color color3=Color.FromArgb(253,138,114);
-           public static Color color4=Color.FromArgb(95,77,221);
-           public static Color color5=Color.FromArgb(249,88,155);
-           public static Color color6=Color.FromArgb(24,161,251);
+           public static Color color1=Color.FromArgb(216, 182, 92);
+           public static Color color2=Color.FromArgb(216, 182, 92);
+           public static Color color3=Color.FromArgb(216, 182, 92);
+           public static Color color4=Color.FromArgb(216, 182, 92);
+           public static Color color5=Color.FromArgb(216, 182, 92);
+           public static Color color6=Color.FromArgb(216, 182, 92);
+           public static Color color7 = Color.FromArgb(10, 25, 30);
         }
         //Methods
         private void ActivateButton(object senderBtn, Color color)
@@ -51,7 +52,7 @@ namespace projectMIS
                 Disablebutton();
                 //Button
                 currentBtn = (IconButton)senderBtn;
-                currentBtn.BackColor = Color.FromArgb(37, 36, 81);
+                currentBtn.BackColor = Color.FromArgb(74, 152, 120);
                 currentBtn.ForeColor = color;
                 currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 currentBtn.IconColor = color;
@@ -65,14 +66,13 @@ namespace projectMIS
                 //Icon Current Child Form
                 iconCurrentChildForm.IconChar = currentBtn.IconChar;
                 iconCurrentChildForm.IconColor = color;
-                
             }
         }
         private void Disablebutton()
         {
             if(currentBtn!=null)
             {
-                currentBtn.BackColor = Color.FromArgb(31, 30, 68);
+                currentBtn.BackColor = Color.FromArgb(74, 152, 120);
                 currentBtn.ForeColor = Color.Gainsboro;
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 currentBtn.IconColor = Color.Gainsboro;
@@ -100,36 +100,36 @@ namespace projectMIS
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             
-            ActivateButton(sender, RGBColors.color1);
+            ActivateButton(sender, RGBColors.color7);
             OpenChildForm(new Dashboard());
             Dashboard test = new Dashboard();
         }
 
         private void btnOrders_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color2);
+            ActivateButton(sender, RGBColors.color7);
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color3);
+            ActivateButton(sender, RGBColors.color7);
         }
 
         private void btnCustomers_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color4);
+            ActivateButton(sender, RGBColors.color7);
             OpenChildForm(new CustomerGUI());
             CustomerGUI test = new CustomerGUI();
         }
 
         private void btnMarketing_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color7);
         }
 
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color6);
+            ActivateButton(sender, RGBColors.color7);
             OpenChildForm(new Employees());
             Employees test = new Employees();
         }

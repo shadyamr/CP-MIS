@@ -43,14 +43,27 @@ namespace projectMIS
             this.Unavailable = new System.Windows.Forms.Label();
             this.Products = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.firedtxt = new System.Windows.Forms.Label();
+            this.employeestxt = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.projectDataSet = new projectMIS.projectDataSet();
             this.salariesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.salariesTableAdapter = new projectMIS.projectDataSetTableAdapters.SalariesTableAdapter();
+            this.gauge = new System.Windows.Forms.Integration.ElementHost();
+            this.gauge1 = new LiveCharts.Wpf.Gauge();
+            this.label12 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projectDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salariesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -75,7 +88,7 @@ namespace projectMIS
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(152)))), ((int)(((byte)(120)))));
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.LabelCompletedOrders);
             this.panel1.Controls.Add(this.LabelOrders);
@@ -85,7 +98,6 @@ namespace projectMIS
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(165, 94);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label5
             // 
@@ -95,7 +107,6 @@ namespace projectMIS
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "completed";
-            this.label5.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // LabelCompletedOrders
             // 
@@ -106,7 +117,6 @@ namespace projectMIS
             this.LabelCompletedOrders.Size = new System.Drawing.Size(54, 18);
             this.LabelCompletedOrders.TabIndex = 0;
             this.LabelCompletedOrders.Text = "Done";
-            this.LabelCompletedOrders.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // LabelOrders
             // 
@@ -117,7 +127,6 @@ namespace projectMIS
             this.LabelOrders.Size = new System.Drawing.Size(63, 19);
             this.LabelOrders.TabIndex = 0;
             this.LabelOrders.Text = "Orders";
-            this.LabelOrders.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label2
             // 
@@ -128,7 +137,6 @@ namespace projectMIS
             this.label2.Size = new System.Drawing.Size(94, 19);
             this.label2.TabIndex = 0;
             this.label2.Text = "completed";
-            this.label2.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label1
             // 
@@ -139,11 +147,10 @@ namespace projectMIS
             this.label1.Size = new System.Drawing.Size(74, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Orders";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.SeaShell;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(152)))), ((int)(((byte)(120)))));
             this.panel2.Controls.Add(this.unavail);
             this.panel2.Controls.Add(this.Produc);
             this.panel2.Controls.Add(this.Unavailable);
@@ -172,7 +179,6 @@ namespace projectMIS
             this.Produc.Size = new System.Drawing.Size(65, 19);
             this.Produc.TabIndex = 2;
             this.Produc.Text = "Produc";
-            this.Produc.Click += new System.EventHandler(this.label6_Click);
             // 
             // Unavailable
             // 
@@ -193,22 +199,112 @@ namespace projectMIS
             this.Products.Size = new System.Drawing.Size(94, 23);
             this.Products.TabIndex = 0;
             this.Products.Text = "Products";
+            this.Products.Click += new System.EventHandler(this.Products_Click);
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(152)))), ((int)(((byte)(120)))));
+            this.panel3.Controls.Add(this.firedtxt);
+            this.panel3.Controls.Add(this.employeestxt);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.label3);
             this.panel3.Location = new System.Drawing.Point(345, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(165, 94);
             this.panel3.TabIndex = 2;
             // 
+            // firedtxt
+            // 
+            this.firedtxt.AutoSize = true;
+            this.firedtxt.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firedtxt.Location = new System.Drawing.Point(100, 70);
+            this.firedtxt.Name = "firedtxt";
+            this.firedtxt.Size = new System.Drawing.Size(68, 19);
+            this.firedtxt.TabIndex = 3;
+            this.firedtxt.Text = "unavail";
+            // 
+            // employeestxt
+            // 
+            this.employeestxt.AutoSize = true;
+            this.employeestxt.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeestxt.Location = new System.Drawing.Point(97, 28);
+            this.employeestxt.Name = "employeestxt";
+            this.employeestxt.Size = new System.Drawing.Size(65, 19);
+            this.employeestxt.TabIndex = 2;
+            this.employeestxt.Text = "Produc";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(0, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(50, 19);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Fired";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 23);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Employees";
+            // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.Indigo;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(152)))), ((int)(((byte)(120)))));
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Controls.Add(this.label10);
+            this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(516, 3);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(168, 94);
             this.panel4.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(100, 70);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 19);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "unavail";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(0, 52);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(105, 19);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Unavailable";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(97, 28);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(65, 19);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Produc";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(3, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 23);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Products";
             // 
             // pieChart1
             // 
@@ -217,7 +313,6 @@ namespace projectMIS
             this.pieChart1.Size = new System.Drawing.Size(235, 254);
             this.pieChart1.TabIndex = 1;
             this.pieChart1.Text = "pieChart1";
-            this.pieChart1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.pieChart1_ChildChanged);
             // 
             // projectDataSet
             // 
@@ -233,12 +328,35 @@ namespace projectMIS
             // 
             this.salariesTableAdapter.ClearBeforeFill = true;
             // 
+            // gauge
+            // 
+            this.gauge.Location = new System.Drawing.Point(13, 107);
+            this.gauge.Name = "gauge";
+            this.gauge.Size = new System.Drawing.Size(430, 271);
+            this.gauge.TabIndex = 2;
+            this.gauge.Text = "elementHost1";
+            this.gauge.Child = this.gauge1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(152)))), ((int)(((byte)(120)))));
+            this.label12.Location = new System.Drawing.Point(148, 355);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(142, 23);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Target Orders";
+            this.label12.Click += new System.EventHandler(this.Products_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(687, 402);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.gauge);
             this.Controls.Add(this.pieChart1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Dashboard";
@@ -249,9 +367,14 @@ namespace projectMIS
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.projectDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.salariesBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -275,5 +398,16 @@ namespace projectMIS
         private System.Windows.Forms.Label Produc;
         private System.Windows.Forms.Label Unavailable;
         private System.Windows.Forms.Label Products;
+        private System.Windows.Forms.Label firedtxt;
+        private System.Windows.Forms.Label employeestxt;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Integration.ElementHost gauge;
+        private LiveCharts.Wpf.Gauge gauge1;
+        private System.Windows.Forms.Label label12;
     }
 }

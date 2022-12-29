@@ -59,6 +59,38 @@ namespace projectMIS
             }
         }
 
+        public int countemployees()
+        {
+            string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Employees Where EmployeeStatus > 0", con);
+                object result = cmd.ExecuteScalar();
+                int sum = Convert.ToInt32(result);
+
+                return sum;
+            }
+        }
+
+        public int firedcount()
+        {
+            string connectionString = "Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Employees Where EmployeeStatus <= 0", con);
+                object result = cmd.ExecuteScalar();
+                int sum = Convert.ToInt32(result);
+
+                return sum;
+            }
+        }
+
         public int CountOrders()
         {
             int count = 0;
@@ -595,20 +627,21 @@ namespace projectMIS
             }
         }
 
-        public void SETEmployee(string firstName, string lastName, string password, string mobilePhone)
+        public void SETEmployee(string firstName, string lastName, string password, string mobilePhone, string notes)
         {
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
 
             SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("INSERT INTO Employees (FirstName, LastName, Password, MobilePhone) " +
-                "VALUES (@firstName, @lastName, @password, @mobilePhone)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Employees (FirstName, LastName, Password, MobilePhone, Notes) " +
+                "VALUES (@firstName, @lastName, @password, @mobilePhone, @notes)", con);
 
             cmd.Parameters.AddWithValue("@firstName", firstName);
             cmd.Parameters.AddWithValue("@lastName", lastName);
             cmd.Parameters.AddWithValue("@password", hashedPassword);
             cmd.Parameters.AddWithValue("@mobilePhone", mobilePhone);
+            cmd.Parameters.AddWithValue("@notes", notes);
 
             int i = cmd.ExecuteNonQuery();
             con.Close();
@@ -618,26 +651,23 @@ namespace projectMIS
             }
         }
 
-        public void SETOrders(int CustomerID, int EmployeeID, DateTime OrderDate, DateTime RequiredDate, DateTime ShippedDate, double Price, string ShipName, string ShipAddress, string ShipCity, string ShipRegion, int ShipPostalCode, string ShipCountry)
+        public void SETOrders(int CustomerID, int EmployeeID, string Name, string Owner, string Phone, string Address, int Budget, string Email, string Notes)
         {
 
             SqlConnection con = new SqlConnection("Data Source=MOHAMED-LAPTOP\\SQLEXPRESS;Initial Catalog=project;Integrated Security=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Orders (CustomerID, EmployeeID, OrderDate, RequiredDate, ShippedDate, Price, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry) " +
-                "VALUES (@CustomerID, @EmployeeID, @OrderDate, @RequiredDate, @ShippedDate, @Price, @ShipName, @ShipAddress, @ShipCity, @ShipRegion, @ShipPostalCode, @ShipCountry)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO Orders (CustomerID, EmployeeID, Name, Owner, Phone, Address, Budget, Email, Notes) " +
+                "VALUES (@CustomerID, @EmployeeID, @Name, @Owner, @Phone, @Address, @Budget, @Email, @Notes)", con);
 
             cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
             cmd.Parameters.AddWithValue("@EmployeeID", EmployeeID);
-            cmd.Parameters.AddWithValue("@OrderDate", OrderDate);
-            cmd.Parameters.AddWithValue("@ShippedDate", ShippedDate);
-            cmd.Parameters.AddWithValue("@Price", Price);
-            cmd.Parameters.AddWithValue("@ShipName", ShipName);
-            cmd.Parameters.AddWithValue("@ShipAddress", ShipAddress);
-            cmd.Parameters.AddWithValue("@ShipRegion", ShipRegion);
-            cmd.Parameters.AddWithValue("@ShipPostalCode", ShipPostalCode);
-            cmd.Parameters.AddWithValue("@ShipCountry", ShipCountry);
-            cmd.Parameters.AddWithValue("@ShipCity", ShipCity);
-            cmd.Parameters.AddWithValue("@RequiredDate", RequiredDate);
+            cmd.Parameters.AddWithValue("@Name", Name);
+            cmd.Parameters.AddWithValue("@Owner", Owner);
+            cmd.Parameters.AddWithValue("@Phone", Phone);
+            cmd.Parameters.AddWithValue("@Address", Address);
+            cmd.Parameters.AddWithValue("@Budget", Budget);
+            cmd.Parameters.AddWithValue("@Email", Email);
+            cmd.Parameters.AddWithValue("@Notes", Notes);
 
             int i = cmd.ExecuteNonQuery();
             con.Close();

@@ -1,14 +1,7 @@
 ﻿using LiveCharts;
-using LiveCharts.Defaults;
 using LiveCharts.Wpf;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace projectMIS
@@ -21,6 +14,11 @@ namespace projectMIS
             functions f = new functions();
             int sponsors = f.SponsoresSum();
             int salaries = f.SalariesSum();
+
+            int countemployees = f.countemployees();
+            employeestxt.Text = countemployees.ToString();
+            int firedemployees = f.firedcount();
+            firedtxt.Text = firedemployees.ToString();
 
             int countorders = f.CountOrders();
             LabelOrders.Text = countorders.ToString();
@@ -41,6 +39,10 @@ namespace projectMIS
             pieChart1.DataClick += PieChart_DataClick;
 
             this.Controls.Add(pieChart1);
+
+            gauge1.From = 0;
+            gauge1.To = 100;
+            gauge1.Value = countDoneorders;
         }
 
         private void PieChart_DataClick(object sender, ChartPoint chartPoint)
@@ -56,32 +58,7 @@ namespace projectMIS
 
         }
 
-        private void elementHost1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pieChart1_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
+        private void Products_Click(object sender, EventArgs e)
         {
 
         }

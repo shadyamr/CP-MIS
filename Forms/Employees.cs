@@ -49,11 +49,12 @@ namespace projectMIS
         private void metroButton1_Click(object sender, EventArgs e)
         {
             string FirstName = TXT_FirstName.Text.ToString();
-            string LastName = TXT_FirstName.Text.ToString();
+            string LastName = TXT_LastName.Text.ToString();
             string password = TXT_password.Text.ToString();
             string MobilePhone = TXT_MobilePhone.Text.ToString();
+            string notes = TXT_Notes.Text.ToString();
             setter s = new setter();
-            s.SETEmployee(FirstName, LastName, password, MobilePhone);
+            s.SETEmployee(FirstName, LastName, password, MobilePhone, notes);
         }
 
         private void metroTextBox1_Click(object sender, EventArgs e)

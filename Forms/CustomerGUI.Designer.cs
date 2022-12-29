@@ -65,7 +65,7 @@ namespace projectMIS
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             this.SearchGRD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.SearchGRD.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.SearchGRD.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.SearchGRD.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
             this.SearchGRD.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.SearchGRD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -107,7 +107,7 @@ namespace projectMIS
             // SearchTXT
             // 
             this.SearchTXT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.SearchTXT.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.SearchTXT.BackColor = System.Drawing.Color.LightGray;
             this.SearchTXT.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SearchTXT.Location = new System.Drawing.Point(81, 12);
             this.SearchTXT.Multiline = true;
@@ -119,7 +119,9 @@ namespace projectMIS
             // 
             this.SearchLBL.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchLBL.AutoSize = true;
+            this.SearchLBL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
             this.SearchLBL.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchLBL.ForeColor = System.Drawing.Color.LightGray;
             this.SearchLBL.Location = new System.Drawing.Point(12, 14);
             this.SearchLBL.Name = "SearchLBL";
             this.SearchLBL.Size = new System.Drawing.Size(51, 18);
@@ -131,7 +133,8 @@ namespace projectMIS
             this.SearchBTN.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchBTN.FlatAppearance.BorderSize = 3;
             this.SearchBTN.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SearchBTN.Location = new System.Drawing.Point(589, 4);
+            this.SearchBTN.ForeColor = System.Drawing.Color.LightGray;
+            this.SearchBTN.Location = new System.Drawing.Point(590, 10);
             this.SearchBTN.Name = "SearchBTN";
             this.SearchBTN.Size = new System.Drawing.Size(75, 28);
             this.SearchBTN.TabIndex = 3;
@@ -210,7 +213,7 @@ namespace projectMIS
             this.TXT_PostalCode.Name = "TXT_PostalCode";
             this.TXT_PostalCode.Size = new System.Drawing.Size(224, 23);
             this.TXT_PostalCode.TabIndex = 4;
-            this.TXT_PostalCode.Text = "PostalCode";
+            this.TXT_PostalCode.Text = "11111 Postal";
             this.TXT_PostalCode.Click += new System.EventHandler(this.metroTextBox1_Click);
             // 
             // TXT_Country
@@ -230,7 +233,7 @@ namespace projectMIS
             this.TXT_Phone.Name = "TXT_Phone";
             this.TXT_Phone.Size = new System.Drawing.Size(224, 23);
             this.TXT_Phone.TabIndex = 4;
-            this.TXT_Phone.Text = "Phone";
+            this.TXT_Phone.Text = "555 555 555";
             this.TXT_Phone.Click += new System.EventHandler(this.metroTextBox1_Click);
             // 
             // metroButton1
@@ -248,6 +251,7 @@ namespace projectMIS
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.LightGray;
             this.label1.Location = new System.Drawing.Point(286, 170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 19);
@@ -258,7 +262,7 @@ namespace projectMIS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(687, 402);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.metroButton1);

@@ -35,7 +35,6 @@ namespace projectMIS
             this.auditsTableAdapter = new projectMIS.projectDataSetTableAdapters.AuditsTableAdapter();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnEmployees = new FontAwesome.Sharp.IconButton();
-            this.btnMarketing = new FontAwesome.Sharp.IconButton();
             this.btnCustomers = new FontAwesome.Sharp.IconButton();
             this.btnProducts = new FontAwesome.Sharp.IconButton();
             this.btnOrders = new FontAwesome.Sharp.IconButton();
@@ -76,9 +75,8 @@ namespace projectMIS
             // 
             // panelMenu
             // 
-            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(152)))), ((int)(((byte)(120)))));
             this.panelMenu.Controls.Add(this.btnEmployees);
-            this.panelMenu.Controls.Add(this.btnMarketing);
             this.panelMenu.Controls.Add(this.btnCustomers);
             this.panelMenu.Controls.Add(this.btnProducts);
             this.panelMenu.Controls.Add(this.btnOrders);
@@ -97,46 +95,22 @@ namespace projectMIS
             this.btnEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmployees.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployees.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnEmployees.IconChar = FontAwesome.Sharp.IconChar.Tools;
+            this.btnEmployees.IconChar = FontAwesome.Sharp.IconChar.PeopleGroup;
             this.btnEmployees.IconColor = System.Drawing.Color.Gainsboro;
             this.btnEmployees.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEmployees.IconSize = 32;
             this.btnEmployees.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployees.Location = new System.Drawing.Point(0, 359);
+            this.btnEmployees.Location = new System.Drawing.Point(0, 310);
             this.btnEmployees.Margin = new System.Windows.Forms.Padding(2);
             this.btnEmployees.Name = "btnEmployees";
             this.btnEmployees.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
             this.btnEmployees.Size = new System.Drawing.Size(165, 49);
             this.btnEmployees.TabIndex = 5;
-            this.btnEmployees.Text = "Setting";
+            this.btnEmployees.Text = "Employees";
             this.btnEmployees.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmployees.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEmployees.UseVisualStyleBackColor = true;
             this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
-            // 
-            // btnMarketing
-            // 
-            this.btnMarketing.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMarketing.FlatAppearance.BorderSize = 0;
-            this.btnMarketing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMarketing.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMarketing.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnMarketing.IconChar = FontAwesome.Sharp.IconChar.MailBulk;
-            this.btnMarketing.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnMarketing.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMarketing.IconSize = 32;
-            this.btnMarketing.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMarketing.Location = new System.Drawing.Point(0, 310);
-            this.btnMarketing.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMarketing.Name = "btnMarketing";
-            this.btnMarketing.Padding = new System.Windows.Forms.Padding(8, 0, 15, 0);
-            this.btnMarketing.Size = new System.Drawing.Size(165, 49);
-            this.btnMarketing.TabIndex = 4;
-            this.btnMarketing.Text = "Marketing";
-            this.btnMarketing.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMarketing.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMarketing.UseVisualStyleBackColor = true;
-            this.btnMarketing.Click += new System.EventHandler(this.btnMarketing_Click);
             // 
             // btnCustomers
             // 
@@ -212,6 +186,7 @@ namespace projectMIS
             // 
             // btnDashboard
             // 
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(152)))), ((int)(((byte)(120)))));
             this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -231,7 +206,7 @@ namespace projectMIS
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panelLogo
@@ -246,8 +221,9 @@ namespace projectMIS
             // 
             // btnHome
             // 
-            this.btnHome.Image = global::projectMIS.Properties.Resources.Untitled_design__2_;
-            this.btnHome.Location = new System.Drawing.Point(-2, 0);
+            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
+            this.btnHome.Image = global::projectMIS.Properties.Resources.logo;
+            this.btnHome.Location = new System.Drawing.Point(0, 0);
             this.btnHome.Margin = new System.Windows.Forms.Padding(2);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(165, 114);
@@ -258,7 +234,7 @@ namespace projectMIS
             // 
             // panelTitleBar
             // 
-            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+            this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(182)))), ((int)(((byte)(92)))));
             this.panelTitleBar.Controls.Add(this.minimize);
             this.panelTitleBar.Controls.Add(this.Close);
             this.panelTitleBar.Controls.Add(this.Maximize);
@@ -268,7 +244,7 @@ namespace projectMIS
             this.panelTitleBar.Location = new System.Drawing.Point(165, 0);
             this.panelTitleBar.Margin = new System.Windows.Forms.Padding(2);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(703, 61);
+            this.panelTitleBar.Size = new System.Drawing.Size(703, 65);
             this.panelTitleBar.TabIndex = 1;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -323,7 +299,7 @@ namespace projectMIS
             // lblTitleChildForm
             // 
             this.lblTitleChildForm.AutoSize = true;
-            this.lblTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lblTitleChildForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
             this.lblTitleChildForm.Location = new System.Drawing.Point(44, 29);
             this.lblTitleChildForm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitleChildForm.Name = "lblTitleChildForm";
@@ -333,10 +309,11 @@ namespace projectMIS
             // 
             // iconCurrentChildForm
             // 
-            this.iconCurrentChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
-            this.iconCurrentChildForm.ForeColor = System.Drawing.Color.MediumPurple;
+            this.iconCurrentChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(182)))), ((int)(((byte)(92)))));
+            this.iconCurrentChildForm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iconCurrentChildForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
             this.iconCurrentChildForm.IconChar = FontAwesome.Sharp.IconChar.Home;
-            this.iconCurrentChildForm.IconColor = System.Drawing.Color.MediumPurple;
+            this.iconCurrentChildForm.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
             this.iconCurrentChildForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconCurrentChildForm.IconSize = 24;
             this.iconCurrentChildForm.Location = new System.Drawing.Point(16, 16);
@@ -348,9 +325,9 @@ namespace projectMIS
             // 
             // panelShadow
             // 
-            this.panelShadow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(58)))));
+            this.panelShadow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.panelShadow.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelShadow.Location = new System.Drawing.Point(165, 61);
+            this.panelShadow.Location = new System.Drawing.Point(165, 65);
             this.panelShadow.Margin = new System.Windows.Forms.Padding(2);
             this.panelShadow.Name = "panelShadow";
             this.panelShadow.Size = new System.Drawing.Size(703, 7);
@@ -358,12 +335,13 @@ namespace projectMIS
             // 
             // panelDesktop
             // 
-            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(25)))), ((int)(((byte)(30)))));
+            this.panelDesktop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(165, 68);
+            this.panelDesktop.Location = new System.Drawing.Point(165, 72);
             this.panelDesktop.Margin = new System.Windows.Forms.Padding(2);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(703, 441);
+            this.panelDesktop.Size = new System.Drawing.Size(703, 437);
             this.panelDesktop.TabIndex = 3;
             this.panelDesktop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDesktop_Paint);
             // 
@@ -408,7 +386,6 @@ namespace projectMIS
         private FontAwesome.Sharp.IconToolStripButton iconToolStripButton1;
         private System.Windows.Forms.Panel panelMenu;
         private FontAwesome.Sharp.IconButton btnEmployees;
-        private FontAwesome.Sharp.IconButton btnMarketing;
         private FontAwesome.Sharp.IconButton btnCustomers;
         private FontAwesome.Sharp.IconButton btnProducts;
         private FontAwesome.Sharp.IconButton btnOrders;
